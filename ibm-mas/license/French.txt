@@ -1,0 +1,592 @@
+INFORMATIONS SUR LA LICENCE
+
+Les Logiciels spécifiés ci-dessous sont concédés sous licence conformément aux dispositions des Informations sur la Licence suivantes qui s'ajoutent à celles des dispositions de la licence du Logiciel précédemment acceptée par le Client et IBM. Si le Client n'a pas précédemment accepté les dispositions de la licence en vigueur pour le Logiciel, les Conditions Internationales d'Utilisation de Logiciel (Z125-3301-14) s'appliquent.
+
+Nom du Logiciel (Référence du Logiciel) : 
+IBM Maximo Application Suite v8.6 (5737-M66)
+
+Les dispositions suivantes s'appliquent à l'utilisation du Logiciel par le Détenteur de la Licence.
+
+Autorisation d'Utilisation Restreinte
+
+À l'exception des Logiciels Groupés, tous les logiciels IBM fournis au Détenteur de la Licence avec le Logiciel ne peuvent être utilisés que dans le cadre de son utilisation du Logiciel Principal au titre du présent document Informations sur la Licence, ce qui signifie que ladite utilisation doit être liée directement à l'utilisation autorisée du Logiciel Principal.
+
+Le Détenteur de la Licence n'est pas autorisé à utiliser le Logiciel pour fournir des services informatiques commerciaux à une tierce partie, pour fournir un hébergement ou un partage de temps commercial, ou pour accorder des sous-licences pour le Logiciel ni pour le louer.
+
+Utilisations interdites
+
+Le Détenteur de la Licence n'est pas autorisé à utiliser ou à permettre à d'autres personnes d'utiliser le Logiciel si un dysfonctionnement du Logiciel est susceptible d'entraîner la mort, des préjudices corporels ou une dégradation matérielle ou environnementale.
+
+Logiciels Auxiliaires
+
+Le Détenteur de la Licence n'est autorisé à installer et à utiliser les Logiciels Auxiliaires indiqués ci-dessous que dans le cadre de son utilisation du Logiciel Principal au titre du présent Contrat. L'expression "dans le cadre de son utilisation" inclut uniquement les tâches liées directement ou nécessaires à l'utilisation autorisée du Logiciel Principal ou d'un Logiciel Auxiliaire. Les Logiciels Auxiliaires ne peuvent être utilisés à d'autres fins. Un Logiciel Auxiliaire peut inclure des dispositions de licence, et le cas échéant, celles-ci s'appliquent à l'utilisation de ce Logiciel Auxiliaire par le Détenteur de la Licence. En cas de contradiction entre les dispositions, celles du présent Document d'Informations sur la Licence prévalent sur celles du Logiciel Auxiliaire. Le Détenteur de la Licence doit se procurer un nombre suffisant d'Autorisations d'Utilisation du Logiciel, dans son ensemble, pour couvrir l'installation et l'utilisation par le Détenteur de la Licence de tous les Logiciels Auxiliaires, sauf si des Autorisations d'Utilisation distinctes sont fournies dans le présent Document d'Informations sur la licence. Par exemple, si le présent Logiciel a été concédé sous licence par Cœurs de Processeur Virtuels (VPC) et si le Détenteur de la Licence doit installer le Logiciel Principal ou un Logiciel Auxiliaire sur une machine avec 10 VPC et un autre Logiciel Auxiliaire sur une deuxième machine avec 10 VPC, le Détenteur de la Licence devra se procurer 20 Autorisations d'Utilisation de type VPC pour le Logiciel.
+
+Logiciels Auxiliaires :
+IBM Cloud Pak for Data Enterprise Edition
+IBM DB2 Standard Edition 11.5
+IBM Watson Discovery for Cloud Pak for Data
+Watson Knowledge Studio
+
+Composants autorisés
+
+Le Détenteur de la Licence est autorisé à utiliser uniquement les composants ou fonctions suivants du Logiciel Auxiliaire correspondant : 
+Control Plane (of Cloud Pak for Data Enterprise Edition)
+Common Services (of Cloud Pak for Data Enterprise Edition)
+Portworx Storage (of Cloud Pak for Data Enterprise Edition)
+Watson Studio (of Cloud Pak for Data Enterprise Edition)
+Watson Machine Learning (of Cloud Pak for Data Enterprise Edition)
+Db2 Warehouse - only SMP mode (of Cloud Pak for Data Enterprise Edition)
+Watson Discovery (of Cloud Pak for Data Enterprise Edition)
+IBM DB2 Standard Edition 11.5
+
+Composants non pris en compte pour établir les Autorisations d'Utilisation requises
+
+Le Détenteur de la Licence est autorisé à installer et à utiliser les composants du Logiciel suivants, conformément aux dispositions de la licence, mais lesdits composants ne sont pas utilisés pour déterminer le nombre d'Autorisations d'Utilisation requises pour le Logiciel.
+Control Plane (of Cloud Pak for Data Enterprise Edition)
+Common Services (of Cloud Pak for Data Enterprise Edition)
+Portworx Storage (of Cloud Pak for Data Enterprise Edition)
+Watson Studio (of Cloud Pak for Data Enterprise Edition)
+Watson Machine Learning (of Cloud Pak for Data Enterprise Edition)
+Db2 Warehouse - only SMP mode (of Cloud Pak for Data Enterprise Edition)
+Watson Discovery (of Cloud Pak for Data Enterprise Edition)
+IBM DB2 Standard Edition 11.5
+
+Code sous Licence Distincte
+
+Chacun des composants répertoriés dans le fichier NON_IBM_LICENSE doit être considéré comme du "Code sous Licence Distincte" concédé sous licence au Détenteur de la Licence dans le cadre des dispositions du/des contrat(s) de licence tiers applicable(s) indiqué(s) dans le(s) fichier(s) NON_IBM_LICENSE joint(s) au Logiciel et non de celles du présent Contrat. Les mises à jour ou correctifs ultérieurs du Logiciel pourront contenir du Code sous Licence Distincte supplémentaire. Ce Code sous Licence Distincte supplémentaire et les licences correspondantes seront répertoriés dans le fichier NON_IBM_LICENSE applicable joint à la mise à jour ou au correctif du Logiciel. 
+
+Remarque : Sauf disposition contraire énoncée dans le Contrat de licence tiers, dans le Contrat ou dans tout autre contrat conclu entre le Détenteur de la Licence et IBM en ce qui concerne le Code sous Licence Distincte :
+(a) IBM le fournit au Détenteur de la Licence SANS GARANTIE D'AUCUNE SORTE ET NE FOURNIT AUCUNE GARANTIE OU CONDITION EXPLICITE OU IMPLICITE, Y COMPRIS, ET DE FAÇON NON LIMITATIVE, EN MATIÈRE DE DROIT DE PROPRIÉTÉ, AUCUNE GARANTIE DE NON-CONTREFAÇON OU DE NON-INTERFÉRENCE, ET AUCUNE GARANTIE OU CONDITION IMPLICITE DE QUALITÉ MARCHANDE OU D'APTITUDE À L'EXÉCUTION D'UN TRAVAIL DONNÉ ;
+(b) IBM ne pourra être tenue responsable pour toute demande d'indemnisation ou pour tout dommage direct et indirect, accessoire, particulier, à titre d'exemple, à caractère répressif (notamment, et de façon non limitative, perte de données, de bénéfices, de revenus, d'économies escomptées, d'activité commerciale) ou tout autre dommage.
+
+Données Personnelles
+
+Le Détenteur de la Licence reconnaît et accepte qu'IBM puisse utiliser des cookies et des technologies de suivi pour collecter des informations personnelles, telles que des données statistiques concernant l'utilisation du produit et des informations dans le but d'aider à améliorer l'expérience utilisateur et/ou d'adapter les interactions aux utilisateurs conformément à la Déclaration de confidentialité IBM disponible à l'adresse suivante http://www.ibm.com/privacy/.
+
+Les unités de mesure suivantes s'appliquent à l'utilisation du Logiciel par le Détenteur de la Licence.
+
+Utilisateur Autorisé
+
+Le terme "Utilisateur Autorisé" désigne une unité de mesure selon laquelle le Logiciel est concédé sous licence. Un Utilisateur Autorisé est un individu unique qui a le droit d'accéder au Logiciel. Le Logiciel peut être installé sur un nombre indéfini d'ordinateurs ou de serveurs ; chaque Utilisateur Autorisé peut accéder simultanément à un nombre indéfini d'instances du Logiciel. Le Détenteur de la Licence doit obtenir une Autorisation d'Utilisation distincte et dédiée pour chaque Utilisateur Autorisé pouvant accéder au Logiciel, directement ou indirectement (par exemple, via un logiciel de multiplexage, un périphérique ou un serveur d'applications) par quelque moyen que ce soit. L'Autorisation d'Utilisation d'un Utilisateur Autorisé est unique et ne peut être partagée ni réaffectée à d'autres fins que le transfert définitif de ladite Autorisation d'Utilisation à un autre individu.
+
+Utilisateur Simultané
+
+Le terme "Utilisateur Simultané" désigne une unité de mesure selon laquelle le Logiciel est concédé sous licence. Un Utilisateur Simultané est un individu qui peut accéder au Logiciel à tout moment. L'individu équivaut à un Utilisateur Simultané unique, même s'il accède à plusieurs instances du Logiciel en même temps. Le Logiciel peut être installé sur un nombre indéfini d'ordinateurs ou de serveurs. Le Détenteur de la Licence doit cependant acquérir des Autorisations d'Utilisation du Logiciel pour le nombre maximum d'Utilisateurs Simultanés accédant au Logiciel. Le Détenteur de la Licence doit acquérir une Autorisation d'Utilisation pour chaque Utilisateur Simultané accédant au Logiciel, directement ou indirectement (par exemple, via un logiciel de multiplexage, un périphérique ou un serveur d'applications) par quelque moyen que ce soit.
+
+Installation
+
+Le terme "Installation" désigne une unité de mesure selon laquelle le Logiciel est concédé sous licence. Une Installation désigne un exemplaire du Logiciel installé sur un disque physique ou virtuel et mis à disposition pour être exécuté sur un ordinateur. Le Détenteur de la Licence doit acquérir une Autorisation d'Utilisation pour chaque Installation du Logiciel.
+
+En plus des dispositions ci-dessus, les dispositions suivantes s'appliquent à l'utilisation du Logiciel par le Détenteur de la Licence.
+
+Le terme "AppPoint" désigne une unité de mesure par laquelle le Logiciel peut être concédé sous licence. Un AppPoint désigne une unité de valeur commune. Le détenteur de la Licence doit se procurer un nombre suffisant d'Autorisations d'Utilisation AppPoint pour couvrir le nombre total d'Autorisations d'Utilisation requises pour l'Utilisation Autorisée du Logiciel par le Détenteur de la Licence.
+Options de conversion des Autorisations d'Utilisation des Logiciels répertoriés :
+IBM Administrative Base User
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Utilisateur Autorisé/10 AppPoints
+
+IBM Administrative Premium User
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Utilisateur Autorisé/15 AppPoints
+
+IBM Application Limited User
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Utilisateur Simultané / 5 AppPoints
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Utilisateur Autorisé/2 AppPoints
+
+IBM Application Base User
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Utilisateur Simultané / 10 AppPoints
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Utilisateur Autorisé/3 AppPoints
+
+IBM Application Premium User
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Utilisateur Simultané / 15 AppPoints
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Utilisateur Autorisé/5 AppPoints
+
+Installation IBM Maximo Connector for Oracle Applications
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Installation / 80 AppPoints
+
+Installation IBM Maximo Connector for SAP Applications
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Installation / 80 AppPoints
+
+Installation IBM Maximo Spatial
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Installation / 80 AppPoints
+
+Installation IBM Maximo Visual Inspection
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Installation / 45 AppPoints
+
+Installation IBM Maximo Visual Inspection Edge
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Installation / 1 AppPoints
+
+Installation IBM Maximo Health and Predict - Utilities
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 installation / 60 AppPoints
+
+Installation d'IBM Maximo Assist
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 installation / 150 AppPoints
+
+Installation IBM Maximo Civil Infrastructure
+
+- Rapport de Conversion des Autorisations d'Utilisation : 1 Installation / 50 AppPoints
+
+Le terme "Ratio d'Autorisation d'Utilisation de conversion n/m" signifie que le Détenteur de la Licence peut convertir un certain nombre ('n') d'Autorisations d'Utilisation soumises à la mesure indiquée concernant le logiciel répertorié pour chaque nombre indiqué ('m') d'Autorisations d'Utilisation soumises à la mesure indiquée pour le Logiciel. Une fois converties, le Détenteur de la Licence ne peut utiliser ces Autorisations d'Utilisation converties que pour le Logiciel répertorié. La conversion en question ne s'applique pas aux Autorisations d'Utilisation du Logiciel qui ne sont pas du type de métrique requis.
+
+
+
+1. Restrictions d'utilisation limitées à l'application
+Un Utilisateur Limité à l'Application peut utiliser un maximum de trois (3) modules dans la fonctionnalité de Gestion du Logiciel, avec les exceptions suivantes : 1) un Utilisateur Limité à l'Application peut accéder à tous les modules uniquement dans le but d'exécuter et d'afficher des rapports, d'afficher les enregistrements en lecture seule, de modifier le statut des enregistrements et des mises à jour aux ordres de travail (« Work Orders ») et d'effectuer les Inspections qui ont été affectées à l'Utilisateur Limité à l'Application, et 2) nonobstant 1) un Utilisateur Limité à l'Application ne peut pas accéder aux modules de Planification et de Programmation, d'Administration, d'Intégration, de Sécurité et de Configuration du Système de quelque manière que ce soit.
+2. Produits Red Hat
+Les produits Red Hat sont pris en charge par IBM uniquement tant que l'Abonnement et le Support Logiciel du Détenteur de la Licence est effectif pour le Logiciel. Les restrictions d'Autorisations d'Utilisation ci-dessous s'appliquent uniquement à tout Abonnement et Support Logiciel en vigueur pour le Logiciel et ne restreignent pas l'utilisation par le Détenteur de la Licence des produits Red Hat, qui font l'objet d'une licence distincte. En outre, le Détenteur de la Licence accepte que son utilisation et sa prise en charge des Produits Red Hat soient soumis aux dispositions suivantes (https://www.redhat.com/en/about/agreements).
+Produit Red Hat :
+Red Hat Enterprise Linux
+Red Hat OpenShift Container Platform
+
+- Ratio d'Autorisation d'Utilisation supplémentaire : premier AppPoint / 166 VPC, tous les 8 AppPoints / 1 VPC supplémentaires
+
+Le terme "Ratio d'Autorisation d'Utilisation supplémentaire n/m" désigne le rapport selon lequel le Détenteur de la Licence reçoit un certain nombre ('n') d'Autorisations d'Utilisation soumises à la mesure indiquée concernant le logiciel identifié pour chaque nombre indiqué ('m') d'Autorisations d'Utilisation soumises à la mesure indiqu Le ratio en question ne s'applique pas aux Autorisations d'Utilisation du Logiciel qui ne sont pas du type de métrique requis. Le nombre d'Autorisations d'Utilisation du logiciel identifié est arrondi au multiple supérieur de 'n'.
+3. COMPOSANTS NON UTILISÉS POUR ÉTABLIR LES AUTORISATIONS D'UTILISATION REQUISES
+Le Détenteur de la Licence est autorisé à installer et à utiliser les composants du Logiciel suivants, conformément aux dispositions de la licence, mais lesdits composants ne sont pas utilisés pour déterminer le nombre d'Autorisations d'Utilisation requises pour le Logiciel.
+
+- Saisir les demandes de service et en afficher le statut.
+- Créer et consulter des demandes, afficher des modèles et des brouillons via l'application Desktop Requisitions.
+- Application Anywhere Service Request
+- Création d'un incident dans Oil and Gas
+- Examen des incidents dans Oil and Gas
+- Demandes de service dans Oil and Gas
+- Création d'une demande de Gestion des Changements (avec accès en lecture seule aux artefacts connexes) dans MOC in Oil and Gas
+- Créer un incident en Santé, sécurité et environnement
+- Consulter les incidents en Santé, sécurité et environnement
+- Demandes de services en Santé, sécurité et environnement, graphique des prises de rendez-vous dans Manage
+- Demandes de véhicule dans IBM Maximo Transportation
+- Accès aux applications Bill Review dans Maximo for Service Providers.
+- Création et affichage de rapports sur l'état via l'application Créer des rapports sur l'état dans Nuclear
+- Transfert de données à MAS Safety via des dispositifs et des capteurs personnels et environnementaux (sans accéder aux tableaux de bord ou aux applications MAS).
+
+4. Serveur d'authentification maître pour la confidentialité
+IBM Maximo Application Suite (MAS) enregistrera les informations nécessaires pour vous permettre d'accéder à la suite et s'assurera que les AppPoints sont gérés correctement en fonction des Autorisations d'Utilisation individuelles des utilisateurs. MAS enregistre également l'utilisation des différents composants afin de contrôler leur conformité.
+5. Utilisation des composants et production de rapports sur la consommation d'AppPoint
+Le Détenteur de la Licence accepte qu'IBM produise de manière automatisée des rapports sur son utilisation du Logiciel et sa consommation des AppPoints. Par ailleurs, si la production de rapports automatisée est indisponible ou désactivée, le Détenteur de la Licence transmettra par voie électronique à IBM des rapports mensuels sur le terminal indiqué par IBM au plus tard dans les 10 jours ouvrables suivant la fin de chaque mois calendaire.
+IBM, ses sociétés affiliées ainsi que leurs sous-traitants peuvent stocker et traiter les coordonnées professionnelles du Client ainsi que celles de son personnel et ses utilisateurs autorisés (nom, numéro de téléphone professionnel, adresse, adresse électronique et identifiants utilisateur, par exemple) dans le cadre de leurs relations d'affaires et ce, partout où ils exercent leurs activités. En cas de notification ou de consentement requis(e) par les individus concernés par le traitement de ces informations, le Client devra les en aviser et obtenir leur consentement. La déclaration de confidentialité IBM, à l'adresse https://www.ibm.com/privacy/us/en/, fournit des détails supplémentaires en ce qui concerne les BCI.
+Le Détenteur de la Licence peut configurer la fonction de production de rapports automatisée du Logiciel de manière à envoyer à IBM des informations spécifiques relatives à l'utilisation. Le Détenteur de la Licence accepte d'autoriser le Logiciel à stocker et à traiter les coordonnées professionnelles du Client ainsi que celles de son personnel et de ses utilisateurs autorisés. Ces informations seront utilisées dans le cadre de nos activités commerciales communes, ce qui inclut toute communication avec le Détenteur de la Licence visant à garantir la conformité à la licence. Le Détenteur de la Licence accepte d'autoriser le Logiciel à stocker et à traiter les informations relatives à son utilisation, à l'utilisation de son système et à ses capacités. Le Détenteur de la Licence peut désactiver la fonction de production de rapports automatisée à tout moment et choisir de transmettre par voie électronique des rapports d'utilisation à IBM.
+Le Détenteur de la Licence accepte également que les Informations du Détenteur de la Licence puissent être consultées par des employés ou des sous-traitants d'IBM dans tout pays appartenant ou non à l'Union Européenne.
+6. Java : aucune licence ne sera octroyée pour l'utilisation du programme sur une unité mobile, et le licencié doit donc s'assurer que le programme ne sera pas installé sur une unité mobile. À ces fins, le terme "Unité mobile" désigne une unité qui contient un microprocesseur embarqué, mais dont le calcul n'est pas l'objectif principal. Les exemples actuels d'Unités mobiles comprennent les téléphones mobiles, les assistants numériques personnels (y compris les appareils BlackBerry), les consoles de jeux, les décodeurs, les contrôleurs embarqués dans les automobiles, les appareils intelligents (appareils ménagers avec des processeurs embarqués) et les passerelles domestiques (appareils à fonction fixe qui gèrent des données et des médias pour un ménage et qui ne peuvent pas exercer de fonctions informatiques générales). En revanche, les ordinateurs de bureau, les ordinateurs portables, les serveurs informatiques à usage général, les serveurs départementaux, les ordinateurs centraux, les serveurs d'applications, les serveurs d'impression, les serveurs de fichiers et les périphériques de stockage de données sont des exemples de dispositifs qui ne sont pas des unités mobiles.
+7. Le présent Logiciel inclut les logiciels suivants qui ne peuvent être utilisés à des fins malveillantes.
+
+- json.jar
+
+8. Exemple de code d'IBM Datapower Gateway
+Le Logiciel peut inclure du Code Exemple. Si du Code Exemple est fourni, il se trouve dans un répertoire nommé SAMPLES. Le Détenteur de la licence n'est autorisé à utiliser et modifier le Code Exemple qu'avec le Logiciel et le système IBM WebSphere DataPower portant un numéro de série spécifique avec lequel il a été fourni aux seules fins de configuration du Logiciel.
+Composants solidDB
+Licence d'utilisation restreinte du Logiciel solidDB : Le Détenteur de la licence est autorisé à installer et à utiliser un exemplaire du serveur de données solidDB, uniquement dans le cadre de son utilisation autorisée du Logiciel, pour le stockage et la gestion des données utilisées et générées par le Logiciel et en aucun cas pour d'autres types de gestion de données. Ce serveur de données solidDB à utilisation restreinte ne doit être utilisé que par les composants internes du Logiciel. Par exemple, solidDB peut être utilisé comme référentiel pour les informations de configuration générées par le Logiciel, mais ne peut pas être utilisé pour concevoir ou étendre des applications personnalisées qui stockent des données de gestion. Cette licence n'autorise pas le Détenteur de la licence à effectuer des connexions entrantes à la base de données à partir d'autres applications pour la génération de requêtes ou de rapports.
+9. Maximo Mobile
+a. L'application IBM Maximo Mobile (« l'application ») téléchargée depuis une boutique d'applications est conçue pour être utilisée avec la suite d'applications Maximo et Maximo Asset Management. Vous acceptez de n'utiliser l'Application qu'à cette fin.
+b. L'application permet à l'utilisateur de capturer des images de machines ou d'autres ressources dans le cadre de l'utilisation de la suite d'applications du logiciel Maximo. Bien que cette application soit conçue uniquement pour des images d'actifs, l'arrière-plan peut être inclus par inadvertance. Par conséquent, comme l'exige cette licence, vous devez vous assurer que vous disposez de toutes les autorisations nécessaires pour prendre et utiliser les images, y compris, mais sans s'y limiter, l'autorisation de prendre des images dans la zone dans laquelle vous travaillez.
+
+- Vous êtes seul responsable des images, enregistrements vocaux, annotations et éléments similaires pris par l'Application et utilisés par la suite d'applications Maximo Application Suite ou Maximo Asset Management. .
+
+c. IBM peut envoyer des notifications à votre exemplaire de l'application. Vous acceptez de recevoir ces notifications.
+d. Dans le cadre du fonctionnement de l'application, des données peuvent être transférées enregistrées, notamment, mais pas uniquement, l'identificateur utilisateur, les numéros de téléphone, les adresses de messagerie, la signature numérique, la géolocalisation, la caméra (pour les images et la vidéo), l'audio et des informations personnelles similaires. Vous pouvez également choisir d'inclure d'autres données à caractère personnel ou sensible. Dans la mesure où vous contrôlez ces données, vous êtes responsable du respect de toutes les réglementations applicables en matière de confidentialité des données.
+e. Votre droit à utiliser l'application est basé sur le nombre d'utilisateurs limités autorisés en fonction du AppPoint acheté.
+f. Si l'application est fournie directement par IBM dans le cadre du Passport Advantage, vous reconnaissez que les conditions internationales d'utilisation de logiciels IBM (Z125-3301-14) s'appliquent. Vous acceptez de lier vos utilisateurs finaux à ces conditions et êtes responsable de vérifier qu'ils respectent celles-ci.
+g. Ces termes se substituent à toutes les dispositions présentées par l'application lors de sa première utilisation.
+h. L'application est conçue pour collecter des données des objets connectés, notamment des renseignements personnels (PI/PII) produits par des capteurs portatifs et environnementaux (notamment des données de géolocalisation et des informations connexes sur l'environnement) et, dans certains cas, par d'autres sources d'informations, au sujet de vos employés, notamment leur état physique, afin de les protéger contre des risques, d'améliorer la sécurité sur le lieu de travail et de permettre la conformité aux politiques de sécurité. Dans la mesure dans laquelle vous contrôlez les données de ce type, vous êtes responsable du respect de toute réglementation applicable sur la confidentialité des données.
+
+- L'application est conçue pour être utilisée dans un espace de travail, et ne doit pas être utilisée ailleurs. De plus, si vos employés avaient connaissance de tout problème de sécurité les affectant ou affectant leurs collègues ou leur espace de travail, il conviendrait de leur demander de prendre les mesures nécessaires, conformément à nos politiques, qu'un risque ait ou non été signalé par l'application.
+
+i. L'application peut être utilisée pour identifier des pièces et des ressources grâce à une extension pour l'achat distincte d'IBM Maximo Application Suite : Parts Identifier Cloud Service
+10. Maximo Anywhere
+Les dispositions suivantes s'appliquent à IBM Maximo Anywhere lorsque des applications Maximo Anywhere sont créées et déployées pour iOS (fichiers .ipa) :
+
+- Vous confirmez que vous possédez toutes les licences appropriées du programme Apple Developer Program et que, en tant que Détenteur de la Licence d'Apple, vous êtes soumis et vous conformerez aux dispositions du Contrat approprié relatif au programme Apple Developer Program. Vous acceptez, en vertu du présent document, de personnaliser davantage le code hybride Maximo Anywhere selon vos besoins et de créer du code hybride Maximo Anywhere en utilisant vos informations d'identification du programme Apple Developer Program. Vous êtes, en toutes circonstances, seul responsable du téléchargement, de la gestion et de la sécurité de Vos informations d'identification, ainsi que de l'accès à celles-ci. IBM n'est pas responsable de la perte ou de la compromission de Vos informations d'identification.
+
+11. App Connect
+La présente licence prévoit l'inclusion d'une autorisation d'utilisation restreinte d'IBM App Connect Enterprise (ACE) pour l'intégration de solutions IBM AI Applications dans le cadre de laquelle une partie du modèle d'intégration s'applique à une solution IBM AI Applications. L'organisation IBM AI Applications distribuera (via les mécanismes de distribution et de vente d'IBM appropriés) les composants IBM App Connect Enterprise répertoriés dans le présent document en vertu d'une licence d'utilisation restreinte.
+12. Détails supplémentaires relatifs à IBM DB2 Standard Edition
+Le Logiciel Auxiliaire peut utiliser jusqu'à 16 Coeurs Processeur et 128 Go de mémoire sur chaque serveur physique ou virtuel ; cependant, si le Logiciel Auxiliaire est utilisé sur un cluster de serveurs configuré pour fonctionner ensemble à l'aide du partitionnement de base de données ou d'une autre technologie de groupement autorisée, le Logiciel Auxiliaire peut utiliser jusqu'à 16 Cœurs Processeur et 128 Go de mémoire sur tous les serveurs virtuels ou physiques de ce cluster.
+13. WebSphere Application Server Liberty (Freemium)
+Le Détenteur de la Licence n'est pas autorisé à utiliser le Logiciel pour un total combiné de plus de 2 Gigaoctets d'espace de segment mémoire de machine virtuelle Java (JVM) sur toutes les Installations, hormis lorsqu'il est utilisé :
+a. sur une Machine de Développeur ou un Serveur d'Assemblage ;
+b. dans le seul but de tester la compatibilité avec un logiciel Open Source accessible au public ou avec un logiciel vendu à des fins commerciales par le Détenteur de la Licence
+Le Détenteur de la Licence doit publier les résultats de tests lorsque la compatibilité a été vérifiée quel que soit l'espace du segment mémoire de machine virtuelle Java utilisé
+L'utilisation du Logiciel par le Détenteur de la Licence est soumise au présent document Informations sur la Licence et aux Conditions Internationales d'Utilisation de Logiciels non garantis qui l'accompagnent, à moins que le Détenteur de la Licence n'obtienne auprès d'IBM une Autorisation d'Utilisation valide pour la version de ce Logiciel dont la licence a été acquise dans le cadre des Conditions Internationales d'Utilisation de Logiciels IBM, auquel cas ce contrat cadre et le document Information sur la Licence s'appliqueraient à l'utilisation continue du Logiciel par le Détenteur de la Licence.
+Le terme "Machine de Développeur" désigne un environnement de bureau physique ou virtuel exécutant un système d'exploitation principal ainsi que le Logiciel, tous deux étant accessibles et utilisés par un (1) unique développeur désigné. Les environnements de bureau virtuel ou physique comprennent des environnements de cloud sur site et hors site. Lorsque le Logiciel est utilisé sur une Machine de Développeur ou un "Serveur d'Assemblage", le Détenteur de la Licence n'est pas autorisé à l'utiliser pour le traitement de charges de production, la simulation de charges de production ou encore le test d'évolutivité d'un code, d'une application ou d'un système donné.
+Le terme "Serveur d'Assemblage" désigne une machine, physique ou virtuelle, sur laquelle ledit Logiciel est installé mais n'a pas été démarré, à l'exception de la commande du package serveur. Les bibliothèques dudit Logiciel peuvent être utilisées pour l'application du Logiciel et les versions du serveur dans le cadre de la prise en charge du Logiciel concédé sous licence.
+Un "Gigaoctet" correspond à deux octets élevés à la puissance 30.
+Un "logiciel Open Source" désigne un logiciel dont le code source est disponible gratuitement à des fins de modification ou d'amélioration avec une licence pour laquelle l'ayant-droit fournit les droits relatifs à l'étude, à la modification et à la distribution dudit logiciel à quiconque et quel qu'en soit le but.
+Une "Installation" désigne un exemplaire du Logiciel installé sur un disque physique ou virtuel et mis à disposition pour être exécuté sur un ordinateur.
+Autres Détails
+WebSphere Application Server Liberty (Freemium)
+
+- Restrictions d'utilisation : Sans restriction
+
+Le terme "Sans restriction" signifie que, nonobstant ce qui précède, le droit d'utilisation du Logiciel Auxiliaire du Détenteur de la Licence n'est pas limité à une utilisation dans le cadre du Logiciel Principal. Le Détenteur de la Licence est autorisé à utiliser le Logiciel Auxiliaire à des fins autres que celles prévues dans le cadre de l'utilisation autorisée du Logiciel Principal, les autres restrictions particulières à l'utilisation du Logiciel Auxiliaire par le Détenteur de la Licence restant applicables.
+
+
+L/N:  L-KBAI-C66PYB
+D/N:  L-KBAI-C66PYB
+P/N:  L-KBAI-C66PYB
+
+
+Conditions Internationales d'Utilisation de Logiciel
+
+Chapitre 1 - Dispositions Générales
+
+EN TÉLÉCHARGEANT, EN INSTALLANT OU EN COPIANT LE LOGICIEL, EN CLIQUANT SUR LE BOUTON "ACCEPTER" OU EN ACCÉDANT AU LOGICIEL, LE DÉTENTEUR DE LA LICENCE ACCEPTE LES DISPOSITIONS DU PRÉSENT CONTRAT. SI VOUS ACCEPTEZ LES PRÉSENTES DISPOSITIONS POUR LE COMPTE DU DÉTENTEUR DE LA LICENCE, VOUS CERTIFIEZ AVOIR QUALITÉ POUR ENGAGER LE DÉTENTEUR DE LA LICENCE À RESPECTER LESDITES DISPOSITIONS. SI VOUS N'ACCEPTEZ PAS CES DISPOSITIONS,
+
+* NE TÉLÉCHARGEZ PAS, N'INSTALLEZ PAS, NE COPIEZ PAS, N'ACCÉDEZ PAS, NE CLIQUEZ PAS SUR LE BOUTON "ACCEPTER" ET N'UTILISEZ PAS LE LOGICIEL ; ET
+
+* DEMANDEZ À ÊTRE REMBOURSÉ DE LA SOMME QUE VOUS AVEZ PAYÉE À LA PERSONNE AUPRÈS DE LAQUELLE VOUS AVEZ ACQUIS LE LOGICIEL, EN LUI RETOURNANT, SANS DÉLAI, LES SUPPORTS NON UTILISÉS, LA DOCUMENTATION, AINSI QUE L'AUTORISATION D'UTILISATION DU LOGICIEL. SI VOUS AVEZ TÉLÉCHARGÉ LE LOGICIEL, DÉTRUISEZ-EN TOUS LES EXEMPLAIRES.
+
+1. Définitions
+
+"Utilisation Autorisée" désigne les limites d'autorisation concédées au Détenteur de la Licence pour exécuter le Logiciel. Ce niveau peut être calculé en fonction du nombre d'utilisateurs, du nombre de millions d'unités de service ("MSU"), du nombre d'Unités de Valeur par Coeur Processeur ("PVU") ou d'un autre niveau d'utilisation spécifié par IBM.
+
+"IBM" désigne la compagnie "International Business Machines Corporation" ou l'une de ses filiales.
+
+"Informations sur la Licence" ("LI") désigne un document qui contient des informations et des dispositions complémentaires spécifiques concernant un Logiciel donné. Les Informations sur la Licence sont disponibles à l'adresse suivante : www.ibm.com/software/sla. Elles peuvent aussi se trouver dans le répertoire du Logiciel accessible par une commande système ou dans une brochure livrée avec le Logiciel.
+
+"Logiciel" désigne les éléments suivants, y compris l'original et toutes les copies partielles ou totales de chacun des éléments : 1) instructions et données lisibles par machine ; 2) composants, fichiers et modules ; 3) contenus audiovisuels (images, textes, enregistrements ou dessins, par exemple) ; et 4) éléments sous licence associés (clés et documentation, par exemple).
+
+"Autorisation d'Utilisation du Logiciel" constitue la preuve que le Détenteur de la Licence est autorisé à utiliser le Logiciel. Il prouve également l'éligibilité du Détenteur de la Licence aux services prévus par la garantie, aux prix applicables pour les mises à jour ultérieures du Logiciel et à d'éventuelles offres spéciales ou promotionnelles. Si IBM ne fournit pas au Détenteur de la Licence une Autorisation d'Utilisation du Logiciel, IBM peut cependant accepter l'original de la facture dont le Détenteur de la Licence s'est acquitté ou toute autre preuve d'achat émanant de la personne (IBM ou l'un de ses revendeurs) auprès de laquelle le Détenteur de la Licence a acquis le Logiciel, sous réserve que ledit document indique le nom du Logiciel ainsi que l'Utilisation Autorisée acquise.
+
+"Période de garantie" couvre une (1) année, à compter de la date à laquelle la licence a été concédée au Détenteur de la Licence initiale.
+
+2. Structure du Contrat
+
+Le présent Contrat est constitué du présent document qui comprend un premier chapitre intitulé Chapitre 1 - Dispositions Générales et éventuellement un second chapitre intitulé Chapitre 2 - Dispositions Nationales Particulières, du document intitulé Informations sur la Licence et de l'Autorisation d'Utilisation du Logiciel. Le présent Contrat exprime l'intégralité de l'accord intervenu entre le Détenteur de la Licence et IBM en ce qui concerne l'utilisation du Logiciel. Il prévaut sur tout autre accord ou communication antérieur, oral ou écrit, intervenu entre le Détenteur de la Licence et IBM concernant l'utilisation du Logiciel par le Détenteur de la Licence. Les dispositions du second chapitre peuvent remplacer ou modifier celles du premier. En cas de contradiction entre les dispositions, le document Informations sur la Licence prévaut sur les deux chapitres en question.
+
+3. Concession de licences
+
+Le Logiciel est la propriété d'IBM ou d'un fournisseur d'IBM et est protégé par les droits d'auteur. Le Logiciel est concédé sous licence et non vendu.
+
+IBM concède au Détenteur de la Licence une licence d'utilisation non exclusive l'autorisant à 1) utiliser le Logiciel dans les limites d'Utilisation Autorisée indiquées dans l'Autorisation d'Utilisation du Logiciel ; 2) effectuer et installer des copies du Logiciel pour permettre une telle utilisation ; et 3) effectuer une copie de sauvegarde, l'ensemble étant sous réserve que :
+
+a. le Détenteur de la Licence ait acquis le Logiciel légalement et respecte les dispositions du présent Contrat ;
+
+b. la copie de sauvegarde n'est pas exécutée sauf si le Logiciel à l'origine de cette copie de sauvegarde ne peut pas être exécuté ;
+
+c. le Détenteur de la Licence reproduise toutes les mentions relatives aux droits d'auteur et toute autre mention de propriété sur chaque copie totale ou partielle du Logiciel ;
+
+d. le Détenteur de la Licence s'engage à ce que toute personne utilisant le Logiciel (que ce soit par le biais de son réseau privé ou d'un réseau public) 1) ne le fasse que pour son usage dans la limite des droits concédés et 2) conformément aux dispositions du présent Contrat ;
+
+e. le Détenteur de la Licence ne doit pas 1) utiliser, copier, modifier ou distribuer le Logiciel sauf mention contraire dans le présent Contrat ; 2) désassembler, décompiler, traduire de quelque façon que ce soit ou faire de l'ingénierie inverse vis-à-vis du Logiciel, à moins d'y avoir été expressément autorisé par une disposition légale d'ordre public ; 3) utiliser certains composants, fichiers, modules, contenus audiovisuels ou éléments associés concédés sous une licence distincte du Logiciel ; ou 4) concéder des sous-licences ou donner le Logiciel en location sous quelque forme que ce soit ; et
+
+f. si le Détenteur de la Licence se procure le Logiciel au titre d'un Logiciel requis, le Détenteur de la Licence utilise ledit Logiciel uniquement dans le but de pouvoir utiliser le Logiciel Principal et conformément aux limites d'utilisation de la licence du Logiciel Principal, ou, si le Détenteur de la Licence se procure le Logiciel au tire d'un Logiciel Principal, le Détenteur de la Licence utilise l'ensemble des Logiciels requis uniquement dans le but de pouvoir utiliser ledit Logiciel et conformément aux limites d'utilisation éventuellement définies dans le présent Contrat. Dans le contexte de l'alinéa "f", le terme "Logiciel requis" désigne un Logiciel rattaché à un autre Logiciel IBM ("Logiciel Principal") et identifié comme étant un Logiciel requis dans le document Informations sur la Licence du Logiciel Principal. Pour se procurer une licence distincte au titre d'un Logiciel requis sans ces restrictions, le Détenteur de la Licence doit s'adresser à la personne auprès de qui il a acquis le Logiciel requis.
+
+Le présent Contrat de licence s'applique à chaque exemplaire du Logiciel créé par le Détenteur de la Licence.
+
+3.1 Mises à jour logiciel, mises à jour et correctifs
+
+3.1.1 Mises à jour logiciel
+
+Si le Logiciel est remplacé par un Logiciel bénéficiant d'une mise à jour logiciel, la licence d'utilisation du Logiciel remplacé est immédiatement résiliée.
+
+3.1.2 Mises à jour et correctifs
+
+Lorsque le Détenteur de la Licence reçoit une mise à jour ou un correctif pour un Logiciel, il accepte toute disposition supplémentaire et différente applicable à ladite mise à jour ou audit correctif figurant dans le document Informations sur la Licence qui l'accompagne. Si aucune disposition supplémentaire ou différente n'accompagne la mise à jour ou le correctif, alors ceux-ci sont exclusivement soumis aux dispositions du présent Contrat. Si le Logiciel est remplacé par une mise à jour, le Détenteur de la Licence s'engage à cesser immédiatement d'utiliser le Logiciel remplacé.
+
+3.2 Licences à durée limitée
+
+Si IBM concède au Détenteur de la Licence, le Logiciel pour une durée limitée, la Licence est résiliée à l'issue de la durée limitée à moins que le Détenteur de la Licence et IBM acceptent mutuellement de la renouveler.
+
+3.3 Durée et résiliation du Contrat
+
+Le présent Contrat reste en vigueur jusqu'à la date de résiliation.
+
+IBM peut résilier la licence qui a été concédée au Détenteur de la Licence si ce dernier ne respecte pas les dispositions du présent Contrat.
+
+Si la licence est résiliée par l'une des parties pour une quelconque raison, le Détenteur de la Licence s'engage à cesser d'utiliser et à détruire immédiatement tous les exemplaires du Logiciel créés par le Détenteur de la Licence. Toute disposition du présent Contrat qui, de par sa nature, s'exerce au-delà de la date de résiliation est prorogée jusqu'à sa complète exécution, et s'applique aux ayants droit et cessionnaires respectifs des deux parties.
+
+4. Prix et redevances
+
+Les redevances sont fonction du niveau d'Utilisation Autorisée acquis, tel que précisé dans l'Autorisation d'Utilisation du Logiciel. Sauf indication contraire dans le présent Contrat, IBM n'accordera aucun crédit ou remboursement concernant les redevances déjà exigibles ou payées.
+
+Si le Détenteur de la Licence souhaite étendre son niveau d'Utilisation Autorisée, il devra en informer IBM ou l'un de ses revendeurs agréés à l'avance et s'acquitter des redevances applicables.
+
+5. Taxes
+
+Le Détenteur de la Licence s'engage à payer toutes taxes, contributions ou droits imposés par toute autorité vis-à-vis du Logiciel, à l'exception de ceux qui seraient basés sur le revenu net d'IBM, et à régler le montant spécifié dans la facture ou à nous fournir le document d'exonération. Toute taxe relative au bien mobilier pour le Logiciel incombe au Détenteur de la Licence à partir de la date à laquelle il l'a acquis. Le Détenteur de la Licence s'engage à payer toutes taxes, contributions ou droits imposés par toute autorité vis-à-vis de l'importation ou de l'exportation, de la cession, de l'accès ou de l'utilisation du Logiciel en dehors du pays dans lequel le Détenteur de la Licence initial a acquis la licence d'utilisation du Logiciel.
+
+6. Garantie "satisfait ou remboursé"
+
+Si pour une raison quelconque, le Détenteur de la Licence n'était pas satisfait du Logiciel et qu'il est le détenteur initial de la licence, il peut résilier le Contrat et obtenir le remboursement du montant qu'il a payé pour le Logiciel, si, dans les 30 jours suivant la date à laquelle il a reçu l'Autorisation d'Utilisation du Logiciel, le Détenteur de la Licence retourne le Logiciel ainsi que son Autorisation d'Utilisation du Logiciel à la personne auprès de laquelle il a acquis le Logiciel. Dans le cas d'une licence à durée limitée renouvelable, le Détenteur de la Licence peut obtenir le remboursement du montant payé s'il retourne le Logiciel ainsi que son Autorisation d'Utilisation du Logiciel dans les 30 premiers jours de la période initiale. Si le Détenteur de la Licence a téléchargé le Logiciel, il doit prendre contact avec la personne auprès de laquelle il l'a acquis pour savoir comment en obtenir le remboursement.
+
+7. Cession du Logiciel
+
+Le Détenteur de la Licence peut céder le Logiciel ainsi que ses droits et obligations au titre de la licence à un tiers, uniquement si ce dernier accepte de respecter les dispositions du présent Contrat. Si la licence est résiliée par l'une des parties pour une quelconque raison, le Détenteur de la Licence n'a pas le droit de céder le Logiciel à une autre partie. Le Détenteur de la Licence n'a pas le droit de céder une partie du 1) Logiciel ou du 2) niveau d'Utilisation Autorisée dudit Logiciel. Si le Détenteur de la Licence cède le Logiciel à une autre partie, il doit également lui remettre un exemplaire papier du présent Contrat, y compris le document Informations sur la Licence ainsi que l'Autorisation d'Utilisation du Logiciel. La licence est résiliée immédiatement après la cession du Logiciel.
+
+8. Garanties et exclusions
+
+8.1 Limitation de garantie
+
+Le Logiciel est garanti par IBM comme conforme à ses spécifications à condition d'être utilisé dans l'environnement opérationnel spécifié. Les spécifications du Logiciel et les informations relatives à l'Environnement Opérationnel Spécifié se trouvent dans la documentation fournie avec le Logiciel (fichier "README", par exemple) ou dans tout autre document d'information publié par IBM (lettre d'annonce, par exemple). Sauf disposition légale ou réglementaire contraire à laquelle il ne peut être dérogé contractuellement, le Détenteur de la Licence reconnaît que ladite documentation et que le contenu d'autres Logiciels puissent n'être rédigés qu'en anglais.
+
+La garantie s'applique uniquement à la partie non modifiée du Logiciel. IBM ne garantit pas que l'utilisation du Logiciel sera ininterrompue ou exempte d'erreurs, ni que tous les défauts seront corrigés par IBM. Le Détenteur de la Licence est responsable des résultats obtenus dans le cadre de l'utilisation du Logiciel.
+
+Au cours de la période de garantie, IBM accorde au Détenteur de la Licence un accès gratuit aux bases de données IBM contenant des informations sur les défauts identifiés du Logiciel, les procédés de correction, de neutralisation ou de contournement de ceux-ci. Pour plus d'informations, veuillez consulter le Guide du Support Logiciel IBM (IBM Software Support Handbook) à l'adresse www.ibm.com/software/support.
+
+Si le Logiciel ne fonctionne pas comme garanti pendant la Période de Garantie et que l'incident ne peut être résolu à partir des informations disponibles dans les bases de données IBM, le Détenteur de la Licence peut rendre le Logiciel ainsi que son Autorisation d'Utilisation du Logiciel à la personne (IBM ou son revendeur) auprès de laquelle il a acquis le Logiciel afin d'obtenir le remboursement du montant qu'il a payé. La licence est résiliée immédiatement après le retour du Logiciel. Si le Détenteur de la Licence a téléchargé le Logiciel, il doit prendre contact avec la personne auprès de laquelle il l'a acquis pour savoir comment en obtenir le remboursement.
+
+8.2 Exclusions
+
+CES GARANTIES SONT LES SEULES GARANTIES AUXQUELLES LE DÉTENTEUR DE LA LICENCE PEUT PRÉTENDRE. ELLES REMPLACENT TOUTES AUTRES GARANTIES OU CONDITIONS, EXPLICITES OU IMPLICITES, Y COMPRIS, ET DE FAÇON NON LIMITATIVE, TOUTE GARANTIE OU CONDITION IMPLICITE DE QUALITÉ SATISFAISANTE, D'APTITUDE À L'EXÉCUTION D'UN TRAVAIL DONNÉ ET TOUTE GARANTIE OU CONDITION EN NONCONTREFAÇON. CERTAINS ÉTATS OU LÉGISLATIONS N'AUTORISENT PAS L'EXCLUSION DES GARANTIES EXPLICITES OU IMPLICITES, AUQUEL CAS L'EXCLUSION CI-DESSUS PEUT NE PAS ÊTRE APPLICABLE AU DÉTENTEUR DE LA LICENCE. ET LA DUREE DE CES GARANTIES SERA ALORS LIMITEE A LA PERIODE DE GARANTIE. PASSÉE CETTE PERIODE, AUCUNE GARANTIE NE S'APPLIQUERA. CERTAINS ÉTATS OU LÉGISLATIONS N'AUTORISENT PAS LES LIMITATIONS DE DURÉE DES GARANTIES IMPLICITES, AUQUEL CAS LA LIMITATION CI-DESSUS PEUT NE PAS ÊTRE APPLICABLE AU DÉTENTEUR DE LA LICENCE.
+
+CES GARANTIES CONFÈRENT AU DÉTENTEUR DE LA LICENCE DES DROITS SPÉCIFIQUES. IL EST POSSIBLE QUE LE DÉTENTEUR DE LA LICENCE DÉTIENNE D'AUTRES DROITS DONT LA NATURE VARIE SELON LA LÉGISLATION APPLICABLE.
+
+LES GARANTIES ÉNONCÉES DANS LE PRÉSENT ARTICLE 8 (GARANTIES ET EXCLUSIONS) SONT FOURNIES PAR IBM EXCLUSIVEMENT. NÉANMOINS, LES EXCLUSIONS ÉNONCÉES DANS CETTE SOUS-SECTION 8.2 (EXCLUSIONS) S'APPLIQUENT ÉGALEMENT AUX FOURNISSEURS DE CODE TIERS D'IBM. LES FOURNISSEURS FOURNISSENT LEDIT CODE SANS GARANTIE NI CONDITION D'AUCUNE SORTE. CE PARAGRAPHE N'ANNULE EN AUCUN CAS LES OBLIGATIONS DE GARANTIE QUI INCOMBENT À IBM AU TITRE DU PRÉSENT CONTRAT.
+
+9. Données et bases de données appartenant au Détenteur de la Licence
+
+Pour aider le Détenteur de la Licence à identifier la cause d'un problème lié au Logiciel, IBM peut demander à ce que le Détenteur de la Licence 1) autorise IBM à accéder à distance au système du Détenteur de la Licence ; ou 2) envoie les données système ou les informations du Détenteur de la Licence à IBM. Toutefois, IBM n'est pas tenue de fournir une telle assistance à moins qu'IBM et le Détenteur de la Licence en aient convenu autrement dans le cadre d'un accord distinct où IBM s'engage à fournir au Détenteur de la Licence une assistance de ce type, qui dépasse les obligations de garantie d'IBM au titre du présent Contrat. Dans tous les cas, IBM utilisera les informations concernant les erreurs et les problèmes dans le but d'améliorer ses produits et services, et de fournir des offres de support associées. Dans ce contexte, le Détenteur de la Licence autorise IBM à faire appel à des sous-traitants et des entités IBM (y compris dans un ou plusieurs pays autres que celui où réside le Détenteur de la Licence).
+
+Le Détenteur de la Licence sera responsable 1) des données et du contenu des bases de données que le Détenteur de la Licence mettra à la disposition d'IBM, 2) du choix et de la mise en oeuvre des procédures et des contrôles régissant l'accès, la sécurité, le chiffrement, l'utilisation ainsi que la transmission des données (notamment les données d'identification personnelle) ; et 3) de la sauvegarde et de la reprise des bases de données et des données éventuellement stockées. Le Détenteur de la Licence ne transmettra et ne fournira à IBM aucun accès à des informations d'identification personnelle, qu'elles soient sous la forme de données ou autre. En outre, il sera redevable des coûts raisonnables ainsi que des sommes qu'IBM pourrait subir au titre des informations fournies à IBM par erreur ou encore de la perte ou de la divulgation desdites informations par IBM, y compris celles découlant de réclamations émanant de tiers.
+
+10. Limitation de responsabilité
+
+Les limitations et exclusions énoncées dans cette Section 10 (Limitation de responsabilité) s'appliquent sous réserve qu'elles ne soient pas interdites par une loi locale à laquelle il ne peut être dérogé contractuellement.
+
+10.1 Cas pour lesquels IBM peut être responsable
+
+Dans certaines circonstances, le Détenteur de la Licence peut être en droit, en raison d'un manquement de la part d'IBM ou d'une autre forme de responsabilité, de réclamer des dommages-intérêts à IBM. Quel que soit le fondement de l'action que le Détenteur de la Licence engage contre IBM (notamment pour violation d'une condition essentielle de ce Contrat, négligence, tromperie ou autre faute contractuelle), la responsabilité d'IBM vis-à-vis de l'ensemble des réclamations découlant de ou liés à chaque Logiciel ou découlant de quelque autre manière du présent Contrat sera limitée au montant 1) des dommages corporels (y compris le décès) et des dommages aux biens matériels, mobiliers et immobiliers ; et 2) tout autre dommage direct et réel plafonné au montant des redevances (jusqu'à 12 mois de redevances si le Logiciel est concédé sous une licence à durée limitée), payées par le Détenteur de la Licence pour le Logiciel à l'origine de la réclamation.
+
+Cette limite s'applique également aux développeurs et fournisseurs d'un Logiciel IBM. C'est le maximum pour lequel IBM, ses développeurs de logiciels et ses sous-traitants sont collectivement responsables.
+
+10.2 Cas pour lesquels IBM n'est pas responsable
+
+IBM, SES DÉVELOPPEURS OU FOURNISSEURS NE PEUVENT EN AUCUN CAS ÊTRE TENUS RESPONSABLES DES DOMMAGES SUIVANTS, ET CE, MÊME S'ILS ONT ÉTÉ INFORMÉS DE LEUR POSSIBLE SURVENANCE :
+
+a. PERTE OU DÉTÉRIORATION DE VOS DONNÉES ;
+
+b. PRÉJUDICES MORAUX, ACCESSOIRES OU INDIRECTS ; OU
+
+c. PERTE DE BÉNÉFICE, D'ACTIVITÉ COMMERCIALE, DE REVENU, DE CLIENTÈLE OU D'ÉCONOMIES ESCOMPTÉES.
+
+11. Vérification de Conformité
+
+Dans le contexte de cette section 11 (Vérification de Conformité), le terme "Dispositions IPLA du Logiciel" désigne 1) le présent Contrat ainsi que les avenants et les documents de transaction applicables fournis par IBM ; et 2) les politiques d'IBM en matière de logiciels pouvant figurer sur le site Internet IBM Software Policy (www.ibm.com/softwarepolicies), y compris, mais sans que cela soit limitatif, les règles en matière de sauvegarde, de tarification et de migration.
+
+Les droits et obligations décrits dans cette section 11 demeurent en vigueur pendant toute la durée où le Logiciel a été concédé au Détenteur de la Licence, ainsi que pendant les deux (2) années qui suivent cette période.
+
+11.1 Processus de vérification
+
+Le Détenteur de la Licence s'engage à créer, conserver et fournir à IBM et ses auditeurs tous les enregistrements, les sorties d'outils système et toute autre information système exacts que ce soit sur papier ou sous forme électronique, afin de démontrer à IBM que l'utilisation que le Détenteur de la Licence fait de tous les Logiciels est conforme aux Dispositions IPLA du Logiciel, y compris, sans que cela soit limitatif, les dispositions d'IBM applicables tant à la licence qu'aux conditions d'éligibilité à certaines tarifications. Le Détenteur de la Licence sera chargé de 1) s'assurer qu'il ne dépasse pas le niveau d'Utilisation Autorisée qui lui a été accordé ; et de 2) rester en conformité avec les Dispositions IPLA du Logiciel.
+
+Moyennant un préavis de 30 jours, IBM se réserve le droit de vérifier que le Détenteur de la Licence se conforme aux Dispositions IPLA du Logiciel dans chacun des sites et pour tous les environnements où le Détenteur de la Licence utilise (à n'importe quelle fin) les Logiciels couverts par les Dispositions IPLA du Logiciel. Ces vérifications seront effectuées de façon à gêner le moins possible les activités du Détenteur de la Licence. En outre, elles pourront être réalisées dans les locaux du Détenteur de la Licence durant les heures normales de travail. Pour ce faire, IBM pourra utiliser un auditeur extérieur, sous réserve qu'un accord de confidentialité ait été signé entre IBM et cet auditeur.
+
+11.2 Résolution
+
+À l'issue desdites vérifications, IBM indiquera par écrit au Détenteur de la Licence s'il a utilisé le Logiciel au-delà du niveau d'Utilisation Autorisée qui lui a été accordé ou s'il est au contraire en conformité avec les Dispositions IPLA du Logiciel. Le Détenteur de la Licence s'engage à régler dans les plus brefs délais à IBM les frais qui pourraient lui être imputés par IBM dans une facture pour 1) toute utilisation du Logiciel au-delà du niveau d'Utilisation Autorisée qui lui a été accordé ; 2) prendre en charge une telle utilisation excessive pour la durée la plus courte d'une telle utilisation ou pour deux (2) années ; et 3) tous les frais supplémentaires et obligations de paiement qu'il pourrait être tenu de respecter à l'égard de ce contrôle.
+
+12. Mentions relatives au code tiers
+
+Le Logiciel peut inclure du code tiers qu'IBM, et non pas la partie tierce, concède sous licence au Détenteur de la Licence dans le cadre du présent Contrat. Si le code tiers est accompagné de mentions spécifiques ("Mentions relatives au code tiers"), elles sont uniquement indiquées à titre de référence pour le Détenteur de la Licence. Ces mentions peuvent résider dans le ou les fichiers NOTICES du Logiciel. Les Mentions relatives au code tiers contiennent des instructions expliquant comment obtenir le code source de certains codes tiers. Si IBM qualifie le code tiers comme étant un "Code tiers modifiable" dans les Mentions relatives au code tiers, elle autorise le Détenteur de la Licence à 1) modifier le Code tiers modifiable ; et à 2) faire de l'ingénierie inverse sur les modules du Logiciel qui sont directement liés au Code tiers modifiable mais dans le seul but de déboguer les modifications que le Détenteur de la Licence a apportées audit code tiers. Si des obligations de service et de support incombent à IBM, elles ne s'appliquent qu'au Logiciel non modifié.
+
+13. Dispositions générales
+
+a. Le présent Contrat ne porte atteinte à aucune des dispositions légales d'ordre public relatives aux droits des consommateurs.
+
+b. En ce qui concerne les Logiciels qu'IBM fournit au Détenteur de la Licence sous une forme tangible, IBM honore ses obligations d'expédition et de livraison au moment où IBM remet lesdits Logiciels au transporteur désigné par IBM, sauf autorisation écrite contraire unissant le Détenteur de la Licence et IBM.
+
+c. Si l'une des dispositions du présent Contrat est considérée comme nulle ou inapplicable, elle n'entraînera pas la nullité des autres dispositions.
+
+d. Le Détenteur de la Licence s'engage à respecter toutes les lois et réglementations applicables en matière d'exportation et d'importation, y compris celles soumises à l'embargo des États-Unis concernant l'exportation de produits destinés à certains usages ou à certains utilisateurs.
+
+e. Le Détenteur de la Licence autorise IBM et ses filiales (ainsi que ses ayants droit et cessionnaires, sous-traitants et Partenaires commerciaux IBM) à stocker et à utiliser les coordonnées des contacts professionnels du Détenteur de la Licence à l'endroit où ils font des affaires, en relation avec les produits et services IBM, ou le bon fonctionnement des relations d'affaires entre IBM et le Détenteur de la Licence.
+
+f. Avant de formuler une réclamation, chacune des parties accordera à l'autre un délai raisonnable pour remplir ses obligations au titre du présent Contrat. Les deux parties mettront en oeuvre tous les efforts raisonnables afin de résoudre les litiges, désaccords ou réclamations pouvant les opposer au titre du présent Contrat.
+
+g. Sauf disposition légale ou réglementaire contraire à laquelle il ne peut être dérogé contractuellement : 1) aucune des parties n'intentera d'action en justice, sous quelque forme que ce soit, à l'égard d'une réclamation découlant du ou liée au présent Contrat plus de deux ans après l'apparition de son fait générateur ; et 2) à l'expiration de ladite période, toute réclamation et tout droit applicable lié à ladite revendication seront déclarés caducs.
+
+h. Ni le Détenteur de la Licence, ni IBM ne sera responsable d'un manquement à ses obligations si un tel manquement résulte d'un cas de force majeure.
+
+i. Le présent Contrat ne crée aucun droit et ne contient aucune stipulation pour autrui au profit d'un tiers. En outre, IBM ne sera pas tenue responsable des réclamations émanant de tiers à l'encontre du Détenteur de la Licence, sauf disposition contraire dans la sous-section 10.1 (Cas pour lesquels IBM peut être responsable), allant au-delà des dommages corporels (y compris le décès) ou des dommages aux biens matériels, mobiliers et immobiliers, pour lesquels IBM est légalement responsable envers ledit tiers.
+
+j. En concluant le présent Contrat, les parties renoncent à tout engagement non expressément prévu dans le présent Contrat, y compris, mais sans que cela soit limitatif, toute déclaration concernant 1) les performances ou le fonctionnement du Logiciel, autre que les garanties énoncées dans l'Article 8 (Garanties et exclusions) ci-dessus ; 2) les expériences et recommandations de parties tierces ; ou 3) les résultats ou économies que le Détenteur de la Licence pourrait obtenir.
+
+k. IBM a signé des contrats avec certaines entités commerciales ("Partenaires Commerciaux IBM") pour promouvoir, commercialiser et fournir certains Logiciels. Les Partenaires commerciaux IBM restent indépendants et distincts d'IBM. IBM n'est pas responsable des actions ou déclarations faites par les Partenaires commerciaux IBM, ni des obligations qu'ils ont vis-à-vis du Détenteur de la Licence.
+
+l. Les dispositions d'indemnisation au titre des licences et de la propriété intellectuelle figurant dans les accords éventuellement conclus entre IBM et le Détenteur de la Licence (comme le Livret contractuel IBM, par exemple) ne s'appliquent pas aux licences de Logiciel qui sont concédées dans le présent Contrat.
+
+14. Étendue géographique et droit applicable
+
+14.1 Droit applicable
+
+Les parties sont d'accord pour que soient appliquées les lois du pays où le Détenteur de la Licence a acquis la licence de Logiciel pour régir, interpréter et faire respecter les droits, devoirs et obligations d'IBM et du Détenteur de la Licence découlant, directement ou indirectement, de l'objet du présent Contrat, sans donner effet aux principes de conflit de lois.
+
+La Convention des Nations Unies sur les contrats régissant le Commerce International de Biens ne s'applique pas.
+
+14.2 Juridiction compétente
+
+Tous les droits, devoirs et obligations des parties sont soumis aux tribunaux du pays dans lequel le Détenteur de la Licence a acquis la licence du Logiciel.
+
+Chapitre 2 - Dispositions nationales particulières
+
+Pour les licences concédées dans les pays mentionnés ci-dessous, les dispositions suivantes remplacent ou modifient celles stipulées dans le Chapitre 1. Toutes les dispositions du Chapitre 1 qui n'ont pas été modifiées par les dispositions ci-après sont inchangées et conservent leurs pleins et entiers effets. Le présent Chapitre 2 est structuré comme suit :
+
+* Amendements applicables à plusieurs pays et relatifs au Chapitre 1, Section 14 (Droit applicable et juridiction compétente) ;
+
+* Amendements applicables aux pays d'Amérique et relatifs à d'autres dispositions du Contrat ; et
+
+* Amendements applicables aux pays d'Europe, du Moyen-Orient et d'Afrique et relatifs à d'autres dispositions du Contrat
+
+Amendements applicables à plusieurs pays et relatifs au Chapitre 1, Section 14 (Droit applicable et juridiction compétente)
+
+14.1 Droit applicable
+
+La mention "les lois du pays où le Détenteur de la Licence a acquis la licence de Logiciel" dans le premier paragraphe de la section 14.1 Droit applicable est remplacée par les phrases suivantes dans les pays suivants :
+
+AMÉRIQUE
+
+(1) au Canada : les lois en vigueur dans la Province de l'Ontario ;
+
+(2) à Saint-Martin : les lois en vigueur dans l'État de New York aux États-Unis ;
+
+EUROPE, MOYEN-ORIENT, AFRIQUE
+
+(3) au Bénin, au Burkina Faso, au Cameroun, en République centrafricaine, au Tchad, aux Comores, au Congo, à Djibouti, en République démocratique du Congo, en Guinée équatoriale, en Guyane française, en Polynésie française, au Gabon, en Guinée, en Côte d'Ivoire, à Madagascar, au Mali, à Mayotte, en Nouvelle Calédonie, au Niger, à la Réunion, au Sénégal, au Togo, en Tunisie et à Wallis et Futuna : les lois en vigueur en France.
+
+14.2 Juridiction compétente
+
+Le paragraphe suivant s'applique à la juridiction des pays identifiés ci-dessous et remplace la Sous-section 14.2 (Juridiction) :
+
+Tous les droits, devoirs et obligations des parties sont soumis aux tribunaux du pays dans lequel le Détenteur de la Licence a acquis la licence du Logiciel, à l'exception des pays identifiés ci-dessous où tout conflit résultant du ou relatif au présent Contrat, y compris en référé, sera de la compétence exclusive des tribunaux suivants :
+
+EUROPE, MOYEN-ORIENT, AFRIQUE
+
+au Bénin, au Burkina Faso, au Cameroun, en République centrafricaine, au Tchad, aux Comores, au Congo, à Djibouti, en République démocratique du Congo, en Guinée équatoriale, en France, en Guyane française, en Polynésie française, au Gabon, en Guinée, en Côte d'Ivoire, à Madagascar, au Mali, à Mayotte, à Monaco, au Maroc, en Nouvelle Calédonie, au Niger, à la Réunion, au Sénégal, au Togo, en Tunisie et à Wallis et Futuna : Tribunal de Commerce de Paris.
+
+AMENDEMENTS APPLICABLES AUX PAYS D'AMÉRIQUE
+
+CANADA
+
+10.1 Cas pour lesquels IBM peut être responsable
+
+Le paragraphe suivant remplace l'alinéa 1 dans le premier paragraphe la présente Sous-section 10.1 (Cas pour lesquels IBM peut être responsable) :
+
+1) des dommages corporels (y compris le décès) et des dégâts matériels aux biens matériels, mobiliers et immobiliers causés par une négligence d'IBM, et
+
+13. Dispositions générales
+
+Le paragraphe suivant remplace l'alinéa 13.d :
+
+d. Le Détenteur de la Licence s'engage à respecter toutes les lois et réglementations applicables en matière d'exportation et d'importation, y compris celles portant sur les produits provenant des États-Unis et qui interdisent ou restreignent l'exportation de produits destinés à certains usages ou à certains utilisateurs.
+
+Le paragraphe suivant remplace l'alinéa 13.i :
+
+i. Le présent Contrat ne crée aucun droit et ne contient aucune stipulation pour autrui au profit d'un tiers. En outre, IBM ne sera pas tenue responsable des réclamations émanant de tiers à l'encontre du Détenteur de la Licence sauf, tel qu'il est prévu dans l'article "Limitation de responsabilité" ci-dessus, au titre de dommages corporels (incluant le décès) et dégâts matériels aux biens matériels, mobiliers et immobiliers, causés par une négligence d'IBM pour laquelle IBM est légalement responsable envers ledit tiers.
+
+Le paragraphe suivant est ajouté en tant qu'alinéa 13.m :
+
+m. Dans le contexte de l'alinéa 13.m, le terme "Données personnelles" désigne les informations relatives à une personne identifiée ou identifiable qui ont été communiquées par l'une des parties, son personnel ou quelqu'un d'autre à l'autre partie dans le cadre du présent Contrat. Les dispositions suivantes s'appliquent si l'une des parties communique les Données personnelles à l'autre partie :
+
+(1) Dispositions générales
+
+(a) Chacune des parties est tenue de se conformer aux obligations ayant trait aux Données personnelles au titre de la réglementation canadienne applicable en matière de confidentialité des données (la "Réglementation").
+
+(b) Aucune des parties ne demandera davantage de Données personnelles qu'elle n'en a besoin au titre du ou des motifs pour lequel ou pour lesquels ladite partie les a demandées. Bien entendu, le ou les motifs de la demande pour lequel ou pour lesquels ladite partie demande les Données personnelles devra ou devront être raisonnables. Chacune des parties accepte par avance le type de Données personnelles qui doivent être mises à disposition des parties.
+
+(2) Dispositifs de sécurité
+
+(a) Chacune des parties reconnaît être la seule responsable de la détermination et de la communication à l'autre partie des dispositifs de sécurité technologiques, physiques et organisationnels adéquats nécessaires au vu de la protection des Données personnelles.
+
+(b) Chacune des parties devra s'assurer que les Données personnelles sont protégées conformément aux dispositifs de sécurité communiqués et acceptés par l'autre partie.
+
+(c) Chacune des parties devra s'assurer que tout tiers à qui les Données personnelles sont transférées se conforme aux dispositions applicables stipulées dans la présente section.
+
+(d) Si des services supplémentaires ou différents sont nécessaires pour rester en conformité avec la réglementation, lesdits services seront considérés comme une demande de nouveaux services.
+
+(3) Utilisation
+
+Chacune des parties reconnaît que les Données personnelles seront exclusivement utilisées, consultées, gérées, transférées, communiqués à des tiers ou traitées d'une quelconque façon au titre du ou des motifs pour lequel ou pour lesquels elles ont été mises à disposition.
+
+(4) Demandes d'accès
+
+(a) Chacune des parties s'engage à coopérer de manière raisonnable avec l'autre partie dans le cadre des demandes d'accès ou de modification des Données personnelles.
+
+(b) Chacune des parties s'engage à rembourser à l'autre partie les redevances raisonnables encourues au titre de l'assistance fournie à l'égard de l'une ou l'autre des parties.
+
+(c) Chacune des parties s'engage à modifier les Données personnelles uniquement à la réception des instructions où l'autre partie ou son personnel l'invite à le faire.
+
+(5) Conservation
+
+Sauf instruction contraire par l'autre partie ou son personnel ou sous couvert de la réglementation, chacune des parties détruira ou renverra rapidement à l'autre partie l'ensemble des Données personnelles qui ne sont plus nécessaires au titre du ou des motifs pour lequel ou pour lesquels elles ont été mises à disposition.
+
+(6) Organismes publics soumis à la réglementation en matière de confidentialité du secteur public
+
+Pour les Détenteurs de licence ayant la qualité d'organismes publics soumis à la réglementation en matière de confidentialité du secteur public, le présent alinéa 13.m ne s'applique qu'aux Données personnelles mises à la disposition du Détenteur de la Licence dans le cadre du présent Contrat. En outre, les obligations stipulées dans la présente section ne s'appliquent qu'au Détenteur de la Licence, à l'exception des sections suivantes : 1) la section (2)(a) ne concerne qu'IBM ; 2) les sections (1)(a) et (4)(a) concernent les deux parties ; puis 3) la section (4)(b) et la dernière phrase de la section (1)(b) ne s'appliquent pas.
+
+AMENDEMENTS APPLICABLES AUX PAYS D'EUROPE, DU MOYEN-ORIENT ET D'AFRIQUE (EMEA)
+
+ÉTATS MEMBRES DE L'UNION EUROPÉENNE
+
+8. Garanties et exclusions
+
+Le paragraphe suivant est ajouté à la Section 8. (Garanties et exclusions) :
+
+Dans l'Union européenne ("UE"), les consommateurs disposent de droits selon la loi nationale en vigueur régissant la vente de biens de consommation. Ces droits ne sont pas affectés par les dispositions stipulées dans la présente Section 8 intitulée "Garanties et exclusions". La limitation de garantie a une portée mondiale.
+
+ÉTATS MEMBRES DE L'UNION EUROPÉENNE ET PAYS IDENTIFIÉS CI-DESSOUS
+
+Suisse et tout autre pays européen ayant mis en oeuvre une réglementation locale en matière de confidentialité ou de protection des données de manière similaire au modèle de l'Union européenne
+
+13. Dispositions générales
+
+Le paragraphe suivant remplace l'alinéa 13.e :
+
+(1) Définitions - Les autres définitions suivantes s'appliquent dans le cadre du présent alinéa 13.e :
+
+(a) Coordonnées des Contacts Professionnels désigne les coordonnées des contacts professionnels communiquées à IBM par le Détenteur de la Licence, notamment le nom, l'intitulé du poste, l'adresse et le numéro de téléphone de bureau, mais aussi l'adresse électronique des employés et des sous-traitants du Détenteur de la Licence. Pour l'Autriche, l'Italie et la Suisse, les Coordonnées des Contacts Professionnels recouvrent également les informations relatives au Détenteur de la Licence et à ses prestataires en tant que personnes morales (notamment les données de chiffre d'affaires ainsi que diverses informations de transaction du Détenteur de la Licence).
+
+(b) Personnel du Contact Professionnel désigne les employés et les prestataires du Détenteur de la Licence auxquels se rapportent les Coordonnées des Contacts Professionnels.
+
+(c) Autorité de Protection des Données désigne l'autorité établie par la Réglementation relative à la Protection des Données et aux Communications Électroniques dans le pays concerné ou, dans le cas des pays non membres de l'Union Européenne, l'autorité chargée de superviser la protection des données personnelles dans ledit pays, ou (pour l'une des dispositions susmentionnées) tout ayant droit dûment désigné à cet égard.
+
+(d) Réglementation relative à la Protection des Données et aux Communications Électroniques désigne (i) la réglementation locale applicable en vigueur mettant en oeuvre les exigences de la Directive Européenne 95/46/CE (concernant la protection des personnes vis-à-vis du traitement des données personnelles et de la libre circulation desdites données) ainsi que de la Directive Européenne 2002/58/CE (concernant le traitement des données personnelles et la protection de la confidentialité dans le secteur des communications électroniques) ; ou (ii) dans le cas des pays non membres de l'Union européenne, la réglementation et/ou les lois passées dans le pays concerné vis-à-vis de la protection des données personnelles ainsi que la réglementation sur les communications électroniques impliquant des Données personnelles, notamment (pour l'une des dispositions susmentionnées) tout remplacement ou toute modification légale desdites informations.
+
+(e) Groupe IBM désigne la société International Business Machines Corporation basée à Armonk dans l'État de New York aux États-Unis, ses filiales, ainsi que ses Partenaires commerciaux et sous-traitants associés.
+
+(2) Le Détenteur de la Licence autorise IBM à :
+
+(a) traiter et utiliser les Coordonnées des Contacts Professionnels au sein du Groupe IBM aux fins de support du Détenteur de la Licence, notamment pour la fourniture de services de support, ainsi que dans le but de renforcer les relations commerciales unissant le Détenteur de la Licence et le Groupe IBM, y compris sans que cela soit limitatif, dans le but de contacter le Personnel du Contact Professionnel (par e-mail ou un autre moyen) et de commercialiser les produits et services du Groupe IBM ("Objet Spécifié") ; et à
+
+(b) communiquer les Coordonnées des Contacts Professionnels à d'autres membres du Groupe IBM uniquement dans le cadre de l'Objet Spécifié.
+
+(3) IBM s'engage à traiter toutes les Coordonnées des Contacts Professionnels conformément à la Réglementation relative à la Protection des Données et aux Communications Électroniques et à les utiliser uniquement dans le cadre de l'Objet Spécifié.
+
+(4) Dans les limites requises par la Réglementation relative à la Protection des Données et aux Communications Électroniques, le Détenteur de la Licence déclare qu'il (a) a obtenu (ou va obtenir) l'accord des (et a transmis (ou va transmettre) les avis aux) Contacts Professionnels - ledit accord étant nécessaire pour permettre au Groupe IBM de traiter et d'utiliser les Coordonnées des Contacts Professionnels dans le cadre de l'Objet Spécifié.
+
+(5) Le Détenteur de la Licence autorise IBM à communiquer les Coordonnées des Contacts Professionnels en dehors de l'Espace Économique Européen, sous réserve qu'elles soient transférées conformément aux dispositions contractuelles approuvées par l'Autorité de Protection des Données ou que leur transfert soit autorisé d'une quelconque façon par la Réglementation relative à la Protection des Données et aux Communications Électroniques.
+
+BELGIQUE, FRANCE ET LUXEMBOURG
+
+10. Limitation de responsabilité
+
+Le paragraphe suivant remplace intégralement les dispositions de cet Article 10 (Limitation de responsabilité) :
+
+Sauf disposition légale impérative contraire :
+
+10.1 Cas pour lesquels IBM peut être responsable
+
+L'entière responsabilité d'IBM relative à l'ensemble agrégé des réclamations et à tout dommage et perte pouvant survenir dans le cadre de l'exercice de ses obligations liées directement ou indirectement au présent Contrat ou résultant d'autres causes liées à ce Contrat, est limitée au dédommagement des seuls dommages et pertes prouvés et résultant immédiatement et directement du manquement à ces obligations (en cas de faute d'IBM) ou d'une telle cause, pour un montant maximum égal à la redevance (jusqu'à 12 mois de redevances si le Logiciel est concédé sous une licence à durée limitée) que le Détenteur de la Licence a payée pour le Logiciel à l'origine desdits dommages.
+
+La limitation sus-mentionnée ne s'applique pas aux dommages corporels (incluant le décès) et dommages aux biens matériels, mobiliers et immobiliers, pour lesquels IBM est légalement responsable.
+
+10.2 Cas pour lesquels IBM n'est pas responsable
+
+IBM ET SES DÉVELOPPEURS NE PEUVENT EN AUCUN CAS ÊTRE TENUS RESPONSABLES DES DOMMAGES SUIVANTS, ET CE, MÊME S'ILS ONT ÉTÉ INFORMÉS DE LEUR POSSIBLE SURVENANCE : 1) PERTE OU DÉTÉRIORATION DE DONNÉES ; 2) DOMMAGES DIRECTS, INDIRECTS, DOMMAGES INTÉRÊTS OU PRÉJUDICES FINANCIERS INDIRECTS ; ET/OU 3) PERTE DE PROFITS, PRÉJUDICE COMMERCIAL, PERTE DE CHIFFRE D'AFFAIRES, PERTE DE CLIENTÈLE, OU PERTE D'ÉCONOMIES ESCOMPTÉES MÊME SI CEUX-CI SONT LA CONSÉQUENCE IMMÉDIATE DE L'ÉVÉNEMENT À L'ORIGINE DES DOMMAGES.
+
+10.3 Fournisseurs et Développeurs de Logiciel
+
+Les limitations et exclusions convenues ci-dessus s'appliquent non seulement aux activités d'IBM mais également à celles de ses fournisseurs et ses développeurs, et définissent le montant maximum pour lequel IBM, ses fournisseurs et ses développeurs sont collectivement responsables.
+
+Z125-3301-14 (07/2011)
+
+
+

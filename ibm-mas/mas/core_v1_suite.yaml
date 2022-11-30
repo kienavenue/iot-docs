@@ -1,0 +1,15 @@
+---
+apiVersion: core.mas.ibm.com/v1
+kind: Suite
+metadata:
+  name: "{{INSTANCE_ID}}"
+  labels:
+    mas.ibm.com/instanceId: "{{INSTANCE_ID}}"
+spec:
+  domain: "{{DOMAIN}}"
+  settings:
+    icr:
+      cp: "{{ICR_CP}}"
+      cpopen: "{{ICR_CPOPEN}}"
+  license:
+    accept: true

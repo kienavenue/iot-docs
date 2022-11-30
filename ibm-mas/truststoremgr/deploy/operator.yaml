@@ -1,0 +1,57 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ibm-truststore-mgr-controller-manager
+  labels:
+    operator: ibm-truststore-mgr
+    app.kubernetes.io/name: ibm-truststore-mgr
+    app.kubernetes.io/instance: ibm-truststore-mgr
+    app.kubernetes.io/managed-by: olm
+spec:
+  selector:
+    matchLabels:
+      operator: ibm-truststore-mgr
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        operator: ibm-truststore-mgr
+      annotations:
+        productID: "57adcba74b75414e89597611ab4a565f"
+        productName: "IBM Truststore Manager"
+        productMetric: "FREE"
+    spec:
+      serviceAccountName: ibm-truststore-mgr-operator
+      imagePullSecrets:
+        - name: ibm-entitlement
+      containers:
+        - name: manager
+          image: "{{ICR_CPOPEN}}/ibm-truststore-mgr:{{VERSION}}"
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1Gi
+            requests:
+              cpu: 300m
+              memory: 512Mi
+          # Using the built-in liveness and readiness probes
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 6789
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 6789
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      terminationGracePeriodSeconds: 10

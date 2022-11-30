@@ -1,0 +1,15 @@
+---
+apiVersion: core.mas.ibm.com/v1
+kind: Suite
+metadata:
+  name: "masdemo"
+  labels:
+    mas.ibm.com/instanceId: "masdemo"
+spec:
+  domain: "itzroks-673000wwxf-igp8nj-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud"
+  settings:
+    icr:
+      cp: "cp.icr.io/cp"
+      cpopen: "icr.io/cpopen"
+  license:
+    accept: true

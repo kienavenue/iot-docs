@@ -1,0 +1,7171 @@
+# IBM Maximo Application Suite 8.6.0
+#
+# To use this installer, run:
+# export INSTANCE_ID=inst1
+# sed -e "s/{{INSTANCE_ID}}/${INSTANCE_ID}/g" mas-8.6.0.yaml | oc apply -f -
+#
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "mas-{{INSTANCE_ID}}-core"
+---
+# addons.mas.ibm.com_appconnects.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/dashboard: path={.status.config.dashboard}
+    service.binding/users: path={.status.config.users}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: appconnects.addons.mas.ibm.com
+spec:
+  group: addons.mas.ibm.com
+  names:
+    kind: AppConnect
+    listKind: AppConnectList
+    plural: appconnects
+    singular: appconnect
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: AppConnect is the Schema for the AppConnects
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              config:
+                properties:
+                  dashboard:
+                    description: The dashboard for AppConnect
+                    type: string
+                  users:
+                    description: The users for AppConnect
+                    items:
+                      description: Usernames
+                      minLength: 1
+                      type: string
+                    type: array
+                required:
+                - dashboard
+                type: object
+              displayName:
+                description: Display name for the AppConnect addon
+                maxLength: 160
+                minLength: 3
+                type: string
+              settings:
+                type: object
+                x-kubernetes-preserve-unknown-fields: true
+            required:
+            - displayName
+            - config
+            type: object
+          status:
+            description: Status defines the observed state of AppConnect
+            properties:
+              config:
+                properties:
+                  dashboard:
+                    description: The dashboard for appconnect
+                    minLength: 1
+                    type: string
+                  users:
+                    description: The users for appconnect
+                    items:
+                      description: Users
+                      type: string
+                    type: array
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# addons.mas.ibm.com_humai.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: humai.addons.mas.ibm.com
+spec:
+  group: addons.mas.ibm.com
+  names:
+    kind: Humai
+    listKind: HumaiList
+    plural: humai
+    singular: humai
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: Humai is the Schema for the configration to connect with humai cloud service
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              config:
+                properties:
+                  humai:
+                    properties:
+                      api:
+                        properties:
+                          data:
+                            description: humai data service URL
+                            type: string
+                          find:
+                            description: humai find service URL
+                            type: string
+                          status:
+                            description: humai status service URL
+                            type: string
+                        type: object
+                      credentials:
+                        properties:
+                          secretName:
+                            description: Name of the secret containing 'username' and 'password'
+                            minLength: 1
+                            type: string
+                        required:
+                        - secretName
+                        type: object
+                      oauth:
+                        properties:
+                          clientId:
+                            description: Oauth client id
+                            type: string
+                          realm:
+                            description: Oauth realm
+                            type: string
+                          url:
+                            description: humai authentication service URL
+                            type: string
+                        type: object
+                    type: object
+                  manage:
+                    properties:
+                      assetProps:
+                        items:
+                          type: string
+                        type: array
+                      itemProps:
+                        items:
+                          type: string
+                        type: array
+                    type: object
+                required:
+                - humai
+                type: object
+                x-kubernetes-preserve-unknown-fields: true
+              displayName:
+                description: Display name for the Humai addon
+                maxLength: 160
+                minLength: 3
+                type: string
+              settings:
+                type: object
+                x-kubernetes-preserve-unknown-fields: true
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of Humai Connection
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# addons.mas.ibm.com_mviedges.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/instances: path={.status.config.instances}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: mviedges.addons.mas.ibm.com
+spec:
+  group: addons.mas.ibm.com
+  names:
+    kind: MVIEdge
+    listKind: MVIEdgeList
+    plural: mviedges
+    singular: mviedge
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: MVIEdge is the Schema for the MVIEdges
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              config:
+                properties:
+                  instances:
+                    items:
+                      properties:
+                        location:
+                          description: The location of the instance to apply edge
+                          type: string
+                        name:
+                          description: The instance name to apply edge
+                          type: string
+                      type: object
+                    required:
+                    - name
+                    - location
+                    type: array
+                required:
+                - instances
+                type: object
+              displayName:
+                description: Display name for the MVIEdge addon
+                maxLength: 160
+                minLength: 3
+                type: string
+              settings:
+                type: object
+                x-kubernetes-preserve-unknown-fields: true
+            required:
+            - displayName
+            - config
+            type: object
+          status:
+            description: Status defines the observed state of MVIEdge addon
+            properties:
+              config:
+                properties:
+                  instances:
+                    items:
+                      properties:
+                        location:
+                          description: The location of the instances to apply edge
+                          minLength: 1
+                          type: string
+                        name:
+                          description: The instances to apply edge
+                          minLength: 1
+                          type: string
+                      type: object
+                    type: array
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_bascfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: bascfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: BasCfg
+    listKind: BasCfgList
+    plural: bascfgs
+    singular: bascfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of BAS integration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: BasCfg is the Schema for the bascfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  contact:
+                    properties:
+                      email:
+                        minLength: 1
+                        type: string
+                      firstName:
+                        minLength: 1
+                        type: string
+                      lastName:
+                        minLength: 1
+                        type: string
+                    required:
+                    - email
+                    - firstName
+                    - lastName
+                    type: object
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret containing the key 'apikey'
+                        minLength: 1
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  url:
+                    type: string
+                required:
+                - url
+                - contact
+                - credentials
+                type: object
+              displayName:
+                description: Display name for the BAS configuration
+                maxLength: 160
+                minLength: 3
+                type: string
+            required:
+            - displayName
+            - config
+            type: object
+          status:
+            description: Status defines the observed state of IDPCfg
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_idpcfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: idpcfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: IDPCfg
+    listKind: IDPCfgList
+    plural: idpcfgs
+    singular: idpcfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: IDPCfg is the Schema for the idpcfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              displayName:
+                description: Display name for the identity provider
+                maxLength: 160
+                minLength: 3
+                type: string
+              ldap:
+                properties:
+                  baseDN:
+                    description: Base domain name
+                    type: string
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret containing the keys bindDN and bindPassword
+                        minLength: 1
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  url:
+                    description: URL of the LDAP server, including protocol and port
+                    type: string
+                  userIdMap:
+                    description: Mapping rule for MAS username to a property in the LDAP registry
+                    type: string
+                required:
+                - url
+                - baseDN
+                - userIdMap
+                - credentials
+                type: object
+              saml:
+                properties:
+                  idp:
+                    properties:
+                      metadata:
+                        description: IDP metadata file content (XML) base64 encoded
+                        format: byte
+                        type: string
+                    required:
+                    - metadata
+                    type: object
+                  sp:
+                    properties:
+                      issuer:
+                        type: string
+                      nameIDFormat:
+                        type: string
+                      serviceProviderName:
+                        type: string
+                    required:
+                    - issuer
+                    - serviceProviderName
+                    - nameIDFormat
+                    type: object
+                required:
+                - sp
+                type: object
+            required:
+            - displayName
+            type: object
+          status:
+            description: Status defines the observed state of IDPCfg
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_jdbccfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/certificates: path={.status.certificates},bindAs=volume
+    service.binding/credentials: path={.status.config.credentials.secretName},objectType=Secret
+    service.binding/driverOptions: path={.status.config.driverOptions}
+    service.binding/sslEnabled: path={.status.config.sslEnabled}
+    service.binding/url: path={.status.config.url}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: jdbccfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: JdbcCfg
+    listKind: JdbcCfgList
+    plural: jdbccfgs
+    singular: jdbccfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: JdbcCfg is the Schema for the jdbccfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of JdbcCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this JDBC service
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  driverOptions:
+                    description: Map of Key/value pairs defining driver connection options
+                    type: object
+                    x-kubernetes-preserve-unknown-fields: true
+                  sslEnabled:
+                    description: Indicates whether the connection uses SSL
+                    type: boolean
+                  url:
+                    description: Url for JDBC connection
+                    minLength: 1
+                    type: string
+                required:
+                - url
+                - sslEnabled
+                - credentials
+                type: object
+              displayName:
+                description: Display name for the JDBC connection
+                maxLength: 160
+                minLength: 3
+                type: string
+            required:
+            - displayName
+            - config
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of JdbcCfg
+            properties:
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret for the credentials of this JDBC connection
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  driverOptions:
+                    description: Map of Key/value pairs defining driver connection options
+                    type: object
+                    x-kubernetes-preserve-unknown-fields: true
+                  sslEnabled:
+                    description: Indicates whether the connection uses SSL
+                    type: boolean
+                  url:
+                    description: Jdbc url
+                    minLength: 1
+                    type: string
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_kafkacfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/certificates: path={.spec.certificates}
+    service.binding/credentials: path={.status.config.credentials.secretName},objectType=Secret
+    service.binding/hosts: path={.status.config.hosts},bindAs=volume
+    service.binding/saslMechanism: path={.status.config.saslMechanism}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: kafkacfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: KafkaCfg
+    listKind: KafkaCfgList
+    plural: kafkacfgs
+    singular: kafkacfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: KafkaCfg is the Schema for the kafkacfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of KafkaCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+                x-kubernetes-preserve-unknown-fields: true
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this Kafka service
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  hosts:
+                    items:
+                      properties:
+                        host:
+                          description: Hostname for this Kafka service
+                          minLength: 1
+                          type: string
+                        port:
+                          description: Port number for this Kafka service
+                          type: integer
+                      required:
+                      - host
+                      - port
+                      type: object
+                    type: array
+                  saslMechanism:
+                    description: saslMechanism for this Kafka service
+                    minLength: 1
+                    type: string
+                required:
+                - hosts
+                - credentials
+                - saslMechanism
+                type: object
+              displayName:
+                description: Display name for the Kafka connection
+                maxLength: 160
+                minLength: 3
+                type: string
+            required:
+            - displayName
+            - config
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of KafkaCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this Kafka service
+                        type: string
+                    type: object
+                  hosts:
+                    items:
+                      properties:
+                        host:
+                          description: Hostname for this Kafka service
+                          minLength: 1
+                          type: string
+                        port:
+                          description: Port number for this Kafka service
+                          type: integer
+                      type: object
+                    type: array
+                  kafkaYaml:
+                    type: string
+                  saslMechanism:
+                    description: saslMechanism for this Kafka service
+                    minLength: 1
+                    type: string
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_mongocfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/authMechanism: path={.status.config.authMechanism}
+    service.binding/certificates: path={.spec.certificates},bindAs=volume
+    service.binding/configDb: path={.status.config.configDb}
+    service.binding/credentials: path={.status.config.credentials.secretName},objectType=Secret
+    service.binding/hosts: path={.status.config.hosts},bindAs=volume
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: mongocfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: MongoCfg
+    listKind: MongoCfgList
+    plural: mongocfgs
+    singular: mongocfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: MongoCfg is the Schema for the mongocfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of MongoCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  authMechanism:
+                    description: Authenticaiton mechanism DEFAULT or PLAIN
+                    minLength: 1
+                    type: string
+                  configDb:
+                    description: Database name for this MongoDB service
+                    minLength: 1
+                    type: string
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret for the credentials of this MongoDB service
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  hosts:
+                    items:
+                      properties:
+                        host:
+                          description: Hostname for this MongoDB service
+                          minLength: 1
+                          type: string
+                        port:
+                          description: Port number for this MongoDB service
+                          type: integer
+                      required:
+                      - host
+                      - port
+                      type: object
+                    type: array
+                required:
+                - hosts
+                - configDb
+                - authMechanism
+                - credentials
+                type: object
+              displayName:
+                description: Display name for the Mongo server
+                maxLength: 160
+                minLength: 3
+                type: string
+            required:
+            - displayName
+            - config
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of MongoCfg
+            properties:
+              config:
+                properties:
+                  authMechanism:
+                    description: Authenticaiton mechanism DEFAULT or PLAIN
+                    minLength: 1
+                    type: string
+                  configDb:
+                    description: Database name for this MongoDB service
+                    minLength: 1
+                    type: string
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret for the credentials of this MongoDB service
+                        type: string
+                    type: object
+                  hosts:
+                    items:
+                      properties:
+                        host:
+                          description: Hostname for this MongoDB service
+                          minLength: 1
+                          type: string
+                        port:
+                          description: Port number for this MongoDB service
+                          type: integer
+                      type: object
+                    type: array
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_objectstoragecfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/certificates: path={.status.certificates}
+    service.binding/credentials: path={.status.config.credentials.secretName},objectType=Secret
+    service.binding/url: path={.status.config.url}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: objectstoragecfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: ObjectStorageCfg
+    listKind: ObjectStorageCfgList
+    plural: objectstoragecfgs
+    singular: objectstoragecfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: ObjectStorageCfg is the Schema for the objectstoragecfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of ObjectStorageCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+                x-kubernetes-preserve-unknown-fields: true
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this ObjectStorage service
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  url:
+                    description: URL for the Object Storage Service
+                    maxLength: 160
+                    minLength: 3
+                    type: string
+                required:
+                - credentials
+                type: object
+                x-kubernetes-preserve-unknown-fields: true
+              displayName:
+                description: Display name for the ObjectStorage connection
+                maxLength: 160
+                minLength: 3
+                type: string
+            required:
+            - displayName
+            - config
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of ObjectStorageCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this ObjectStorage service
+                        type: string
+                    type: object
+                  objectStorageYaml:
+                    type: string
+                  url:
+                    type: string
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_pushnotificationcfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/bundleId: path={.status.config.bundleId}
+    service.binding/credentials: path={.status.config.credentials.secretName},objectType=Secret
+    service.binding/production: path={.status.config.production}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: pushnotificationcfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: PushNotificationCfg
+    listKind: PushNotificationCfgList
+    plural: pushnotificationcfgs
+    singular: pushnotificationcfg
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: PushNotificationCfg is the Schema for the pushnotificationcfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of PushNotificationCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  bundleId:
+                    description: Push Notification service Bundle Id
+                    type: string
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this Push Notification service
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  production:
+                    description: Push Notification Production service
+                    type: boolean
+                required:
+                - bundleId
+                - production
+                - credentials
+                type: object
+              displayName:
+                description: Display name for the Push Notification service
+                maxLength: 160
+                minLength: 3
+                type: string
+            required:
+            - config
+            - displayName
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of PushNotificationCfg
+            properties:
+              config:
+                properties:
+                  bundleId:
+                    description: Push Notification service Bundle Id
+                    type: string
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this Push Notification service
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  production:
+                    description: Push Notification Production service
+                    type: boolean
+                type: object
+              displayName:
+                description: Display name for the Push Notification service
+                maxLength: 160
+                minLength: 3
+                type: string
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_scimcfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: scimcfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: ScimCfg
+    listKind: ScimCfgList
+    plural: scimcfgs
+    singular: scimcfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: ScimCfg is the Schema for the scimcfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of ScimCfg
+            properties:
+              config:
+                properties:
+                  entitlement:
+                    properties:
+                      application:
+                        type: string
+                    required:
+                    - application
+                    type: object
+                  groupSync:
+                    properties:
+                      groupBaseDN:
+                        type: string
+                      groupFilter:
+                        type: string
+                      groupIdMap:
+                        type: string
+                      groupMemberIdMap:
+                        type: string
+                      syncGroups:
+                        type: boolean
+                    required:
+                    - syncGroups
+                    type: object
+                  issuer:
+                    type: string
+                  ldapAuth:
+                    properties:
+                      baseDN:
+                        type: string
+                      certificates:
+                        items:
+                          properties:
+                            alias:
+                              type: string
+                            crt:
+                              type: string
+                          required:
+                          - alias
+                          - crt
+                          type: object
+                        type: array
+                      credentials:
+                        properties:
+                          secretName:
+                            description: Name of the secret that holds Scim credentials
+                            type: string
+                        required:
+                        - secretName
+                        type: object
+                      url:
+                        type: string
+                    required:
+                    - url
+                    - baseDN
+                    - certificates
+                    - credentials
+                    type: object
+                  syncFrequency:
+                    type: string
+                  userSync:
+                    properties:
+                      userBaseDN:
+                        type: string
+                      userFilter:
+                        type: string
+                      userIdMap:
+                        type: string
+                    required:
+                    - userFilter
+                    - userIdMap
+                    type: object
+                  workspaces:
+                    items:
+                      properties:
+                        applications:
+                          items:
+                            type: string
+                          type: array
+                        id:
+                          type: string
+                      required:
+                      - id
+                      - applications
+                      type: object
+                    type: array
+                required:
+                - syncFrequency
+                - issuer
+                - entitlement
+                - workspaces
+                - ldapAuth
+                - userSync
+                - groupSync
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of ScimCfg
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_slscfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: slscfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: SlsCfg
+    listKind: SlsCfgList
+    plural: slscfgs
+    singular: slscfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: The version of the SLSCfg
+      jsonPath: .status.versions.reconciled
+      name: version
+      type: string
+    - description: Indicates the SLS integration operational status
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - description: Indicates if a SLS client has been registered for MAS
+      jsonPath: .status.conditions[?(@.type=='Registered')].reason
+      name: registered
+      type: string
+    - description: Indicates if the license key for MAS is valid
+      jsonPath: .status.conditions[?(@.type=='LicenseKeyValid')].reason
+      name: licensekeyvalid
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: SlsCfg is the Schema for the slscfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret containing the key 'registrationKey'
+                        minLength: 1
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  url:
+                    description: SLS API URL
+                    type: string
+                required:
+                - url
+                - credentials
+                type: object
+              displayName:
+                description: Display name for the SLS configuration
+                maxLength: 160
+                minLength: 3
+                type: string
+            required:
+            - displayName
+            - config
+            type: object
+          status:
+            description: Status defines the observed state of SlsCfg
+            properties:
+              config:
+                properties:
+                  clientId:
+                    description: SLS Client ID
+                    type: string
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds SLS certificates for mutual TLS
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  url:
+                    description: SLS API URL
+                    type: string
+                required:
+                - url
+                - clientId
+                - credentials
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_smtpcfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/authentication: path={.status.config.authentication}
+    service.binding/certificates: path={.status.certificates},bindAs=volume
+    service.binding/credentials: path={.status.config.credentials.secretName},objectType=Secret
+    service.binding/default_recipient_email: path={.status.config.defaultRecipientEmail}
+    service.binding/default_sender_email: path={.status.config.defaultSenderEmail}
+    service.binding/default_sender_name: path={.status.config.defaultSenderName}
+    service.binding/hostname: path={.status.config.hostname}
+    service.binding/port: path={.status.config.port}
+    service.binding/security: path={.status.config.security}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: smtpcfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: SmtpCfg
+    listKind: SmtpCfgList
+    plural: smtpcfgs
+    singular: smtpcfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: SmtpCfg is the Schema for the smtpcfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of SmtpCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  authentication:
+                    type: boolean
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds SMTP credentials
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  defaultRecipientEmail:
+                    description: A monitored email address to which suite system notification messages are sent. Credentials for users that are created without email addresses are also sent here.
+                    pattern: ^.+@.+\..+$
+                    type: string
+                  defaultSenderEmail:
+                    description: The default "from" address for emails sent by MAS
+                    pattern: ^.+@.+\..+$
+                    type: string
+                  defaultSenderName:
+                    description: The default "from" name for emails sent by MAS
+                    type: string
+                  defaultShouldEmailPasswords:
+                    description: Determines whether passwords should be emailed by default to newly-created users. Can be overridden on a per-user basis.
+                    type: boolean
+                  hostname:
+                    type: string
+                  port:
+                    description: SMTP server port
+                    type: integer
+                  security:
+                    enum:
+                    - None
+                    - STARTTLS
+                    - SSL
+                    example: SSL
+                    type: string
+                required:
+                - hostname
+                - port
+                - security
+                - authentication
+                - defaultSenderEmail
+                - defaultRecipientEmail
+                - defaultShouldEmailPasswords
+                type: object
+              displayName:
+                description: a simple display name for the configuration
+                type: string
+              skipVerification:
+                description: if true, the SMTP configuration will not be verified by the SmtpCfg operator during setup. Should be set if and only if this SMTP configuration has already been verified by whatever set it (this is to prevent multiple test emails being sent out per configuration change)
+                type: boolean
+            required:
+            - displayName
+            - config
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of SmtpCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  authentication:
+                    type: boolean
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds SMTP credentials
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  defaultRecipientEmail:
+                    description: A monitored email address to which suite system notification messages are sent. Credentials for users that are created without email addresses are also sent here.
+                    pattern: ^.+@.+\..+$
+                    type: string
+                  defaultSenderEmail:
+                    description: The default "from" address for emails sent by MAS
+                    pattern: ^.+@.+\..+$
+                    type: string
+                  defaultSenderName:
+                    description: The default "from" name for emails sent by MAS
+                    type: string
+                  defaultShouldEmailPasswords:
+                    description: Determines whether passwords should be emailed by default to newly-created users. Can be overridden on a per-user basis.
+                    type: boolean
+                  hostname:
+                    type: string
+                  port:
+                    description: SMTP server port
+                    type: integer
+                  security:
+                    enum:
+                    - None
+                    - STARTTLS
+                    - SSL
+                    example: SSL
+                    type: string
+                required:
+                - hostname
+                - port
+                - security
+                - authentication
+                - defaultSenderEmail
+                - defaultRecipientEmail
+                - defaultShouldEmailPasswords
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# config.mas.ibm.com_watsonstudiocfgs.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/certificates: path={.status.certificates}
+    service.binding/credentials: path={.status.config.credentials.secretName},objectType=Secret
+    service.binding/endpoint: path={.status.config.endpoint}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: watsonstudiocfgs.config.mas.ibm.com
+spec:
+  group: config.mas.ibm.com
+  names:
+    kind: WatsonStudioCfg
+    listKind: WatsonStudioCfgList
+    plural: watsonstudiocfgs
+    singular: watsonstudiocfg
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: WatsonStudioCfg is the Schema for the watsonstudiocfgs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of WatsonStudioCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+                x-kubernetes-preserve-unknown-fields: true
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this WatsonStudio service
+                        type: string
+                    required:
+                    - secretName
+                    type: object
+                  endpoint:
+                    description: endpoint for this WatsonStudio service
+                    minLength: 1
+                    type: string
+                required:
+                - endpoint
+                - credentials
+                type: object
+              displayName:
+                description: Display name for the WatsonStudio connection
+                maxLength: 160
+                minLength: 3
+                type: string
+            required:
+            - displayName
+            - config
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of WatsonStudioCfg
+            properties:
+              certificates:
+                description: A list of aliases and PEM-formatted certificates representing a complete chain of trust for the host. Only necessary if the host presents a certificate signed by a CA that is not already trusted by MAS.
+                items:
+                  properties:
+                    alias:
+                      description: A human-readable alias for the certificate. Must be unique wrt the other aliases in this request.
+                      example: intermediate
+                      type: string
+                    crt:
+                      description: A SINGLE PEM-formatted certificate.
+                      example: '-----BEGIN CERTIFICATE-----MIIGxTCCBa2g...<snip>-----END CERTIFICATE-----'
+                      type: string
+                  required:
+                  - alias
+                  - crt
+                  type: object
+                type: array
+              config:
+                properties:
+                  credentials:
+                    properties:
+                      secretName:
+                        description: Name of the secret that holds the credentials for this WatsonStudio service
+                        type: string
+                    type: object
+                  endpoint:
+                    description: endpoint for this WatsonStudio service
+                    minLength: 1
+                    type: string
+                  watsonstudioYaml:
+                    type: string
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# core.mas.ibm.com_suites.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    crd_version: 8.6.0
+    operators.operatorframework.io/internal-objects: '["coreidp.internal.mas.ibm.com"]'
+    service.binding/access_token_timeout: path={.status.settings.sso.accessTokenTimeout}
+    service.binding/api_internal_url: path={.status.apis.internal.url}
+    service.binding/cert_issuer_external: path={.status.cert-manager.external.name}
+    service.binding/cert_issuer_internal: path={.status.cert-manager.internal.name}
+    service.binding/domain: path={.spec.domain}
+    service.binding/icr_cp: path={.status.settings.icr.cp}
+    service.binding/icr_cpopen: path={.status.settings.icr.cpopen}
+    service.binding/idle_timeout: path={.status.settings.sso.idleTimeout}
+    service.binding/idp_session_timeout: path={.status.settings.sso.idpSessionTimeout}
+    service.binding/locale_country: path={.status.settings.locale.country}
+    service.binding/locale_language: path={.status.settings.locale.language}
+    service.binding/version: path={.status.versions.reconciled}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: suites.core.mas.ibm.com
+spec:
+  group: core.mas.ibm.com
+  names:
+    kind: Suite
+    listKind: SuiteList
+    plural: suites
+    singular: suite
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: The version of the MAS installation
+      jsonPath: .status.versions.reconciled
+      name: version
+      type: string
+    - description: Overall status of the suite installation
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - description: Status of the suite configuration of the system Database
+      jsonPath: .status.conditions[?(@.type=='SystemDatabaseReady')].reason
+      name: SystemDatabaseReady
+      type: string
+    - description: Status of the suite integration with Behaviour Analytics Service
+      jsonPath: .status.conditions[?(@.type=='BASIntegrationReady')].reason
+      name: BASIntegrationReady
+      type: string
+    - description: Status of the suite integration with Suite License Service
+      jsonPath: .status.conditions[?(@.type=='SLSIntegrationReady')].reason
+      name: SLSIntegrationReady
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: Suite represents the installation of Maximo application suite core systems
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of Suite
+            properties:
+              certManagerNamespace:
+                description: |
+                  the namespace that the cert-manager operator has been deployed to.  If not provided, a default value of 'cert-manager' will be assumed
+                type: string
+              certificateIssuer:
+                description: |
+                  Configure an existing cert-manager ClusterIssuer to issue certificates for the suite, if not provided then a ClusterIssuer will be created automatically, configured to provide self-signed certificates.
+                properties:
+                  duration:
+                    description: Declare the validity period for all generated certificates
+                    minLength: 1
+                    type: string
+                  name:
+                    description: The name of the cert-manager ClusterIssuer that will issue certificates for the suite
+                    minLength: 1
+                    type: string
+                  renewBefore:
+                    description: Declare how long before a certificate expires to renew it
+                    minLength: 1
+                    type: string
+                required:
+                - name
+                - renewBefore
+                - duration
+                type: object
+              domain:
+                description: Declares the top level domain that will be used for configuring all Routes in this deployment
+                minLength: 1
+                type: string
+              license:
+                properties:
+                  accept:
+                    type: boolean
+                required:
+                - accept
+                type: object
+              settings:
+                properties:
+                  icr:
+                    properties:
+                      cp:
+                        description: Configure the IBM Container registry for cp content (defaults to cp.icr.io/cp)
+                        type: string
+                      cpopen:
+                        description: Configure the IBM Container registry for cpopen content (defaults to icr.io/cpopen)
+                        type: string
+                    required:
+                    - cp
+                    - cpopen
+                    type: object
+                  locale:
+                    properties:
+                      country:
+                        description: Defaults to "GB"
+                        type: string
+                      language:
+                        description: Defaults to "en"
+                        type: string
+                    required:
+                    - language
+                    - country
+                    type: object
+                  sso:
+                    properties:
+                      accessTokenTimeout:
+                        description: OIDC access token timeout. Defaults to "12h"
+                        type: string
+                      idleTimeout:
+                        description: Cross Application idletimeout - client side. Defaults to "30" minutes
+                        type: number
+                      idpSessionTimeout:
+                        description: CoreIdp session timeout. Defaults to "12h"
+                        type: string
+                    type: object
+                type: object
+                x-kubernetes-preserve-unknown-fields: true
+            required:
+            - domain
+            - license
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of Suite
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# core.mas.ibm.com_workspaces.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/displayName: path={.spec.displayName}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: workspaces.core.mas.ibm.com
+spec:
+  group: core.mas.ibm.com
+  names:
+    kind: Workspace
+    listKind: WorkspaceList
+    plural: workspaces
+    singular: workspace
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the workspace
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: Workspace is the Schema for the workspaces API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of Workspace
+            properties:
+              displayName:
+                type: string
+              settings:
+                properties:
+                  navigator:
+                    properties:
+                      addons:
+                        properties:
+                          apm4eandu:
+                            properties:
+                              url:
+                                type: string
+                            required:
+                            - url
+                            type: object
+                          eam:
+                            properties:
+                              url:
+                                type: string
+                            required:
+                            - url
+                            type: object
+                          mroio:
+                            properties:
+                              url:
+                                type: string
+                            required:
+                            - url
+                            type: object
+                          omnio:
+                            properties:
+                              url:
+                                type: string
+                            required:
+                            - url
+                            type: object
+                          scheduleroptimization:
+                            properties:
+                              url:
+                                type: string
+                            required:
+                            - url
+                            type: object
+                        type: object
+                    type: object
+                type: object
+            required:
+            - displayName
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of Workspace
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# ibm-mas.clusterserviceversion.yaml
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ibm-mas-operator:{{INSTANCE_ID}}
+rules:
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+  verbs:
+    - get
+    - update
+    - create
+    - delete
+- apiGroups:
+    - ''
+  resources:
+    - serviceaccounts
+  verbs:
+    - get
+    - update
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - rolebindings
+    - clusterrolebindings
+    - roles
+    - clusterroles
+  verbs:
+    - get
+    - update
+- apiGroups:
+    - apps.openshift.io
+  resources:
+    - deployments
+  verbs:
+    - get
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+  verbs:
+    - create
+    - delete
+    - get
+- apiGroups:
+    - project.openshift.io
+  resources:
+    - projects
+  verbs:
+    - create
+    - get
+- apiGroups:
+    - operators.coreos.com
+  resources:
+    - subscriptions
+    - installplans
+    - operatorgroups
+    - catalogsources
+    - clusterserviceversions
+  verbs:
+    - create
+    - get
+    - list
+    - delete
+    - patch
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - pods
+    - services
+    - services/finalizers
+    - endpoints
+    - persistentvolumeclaims
+    - events
+    - configmaps
+    - secrets
+    - serviceaccounts
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - namespaces
+  verbs:
+    - get
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+  verbs:
+    - '*'
+- apiGroups:
+    - ''
+  resources:
+    - events
+  verbs:
+    - create
+- apiGroups:
+    - monitoring.coreos.com
+  resources:
+    - servicemonitors
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resourceNames:
+    - assist-operator
+  resources:
+    - deployments/finalizers
+  verbs:
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - pods
+  verbs:
+    - get
+- apiGroups:
+    - apps
+  resources:
+    - replicasets
+    - deployments
+  verbs:
+    - get
+- apiGroups:
+    - mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+    - cronjobs
+  verbs:
+    - '*'
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - extensions
+  resources:
+    - statefulsets
+    - statefulsets/scale
+    - daemonsets
+    - deployments
+    - deployments/rollback
+    - deployments/scale
+    - ingresses
+    - networkpolicies
+    - replicasets
+    - replicasets/scale
+    - replicationcontrollers/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - patch
+    - update
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - ingresses
+    - networkpolicies
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+    - apps.openshift.io
+  resources:
+    - deploymentconfigs
+    - deploymentconfigs/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuers
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - integreatly.org
+  resources:
+    - grafanadashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - monitoringcontroller.cloud.ibm.com
+  resources:
+    - monitoringdashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - assistapps
+    - assistapps/status
+    - assistapps/finalizers
+    - assistworkspaces
+    - assistworkspaces/status
+    - assistworkspaces/finalizers
+    - assistbackups
+    - assistbackups/status
+    - assistbackups/finalizers
+    - assistrestores
+    - assistrestores/status
+    - assistrestores/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - pods
+    - services
+    - services/finalizers
+    - endpoints
+    - persistentvolumeclaims
+    - events
+    - configmaps
+    - secrets
+    - serviceaccounts
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - namespaces
+  verbs:
+    - get
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+  verbs:
+    - '*'
+- apiGroups:
+    - ''
+  resources:
+    - events
+  verbs:
+    - create
+- apiGroups:
+    - monitoring.coreos.com
+  resources:
+    - servicemonitors
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resourceNames:
+    - hputilities-operator
+  resources:
+    - deployments/finalizers
+  verbs:
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - pods
+  verbs:
+    - get
+- apiGroups:
+    - apps
+  resources:
+    - replicasets
+    - deployments
+  verbs:
+    - get
+- apiGroups:
+    - mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+    - cronjobs
+  verbs:
+    - '*'
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - extensions
+  resources:
+    - statefulsets
+    - statefulsets/scale
+    - daemonsets
+    - deployments
+    - deployments/rollback
+    - deployments/scale
+    - ingresses
+    - networkpolicies
+    - replicasets
+    - replicasets/scale
+    - replicationcontrollers/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - patch
+    - update
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - ingresses
+    - networkpolicies
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+    - apps.openshift.io
+  resources:
+    - deploymentconfigs
+    - deploymentconfigs/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuers
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - integreatly.org
+  resources:
+    - grafanadashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - monitoringcontroller.cloud.ibm.com
+  resources:
+    - monitoringdashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - hputilitiesapps
+    - hputilitiesapps/status
+    - hputilitiesapps/finalizers
+    - hputilitiesworkspaces
+    - hputilitiesworkspaces/status
+    - hputilitiesworkspaces/finalizers
+    - healthapps
+    - healthapps/status
+    - healthapps/finalizers
+    - healthworkspaces
+    - healthworkspaces/status
+    - healthworkspaces/finalizers
+    - manageapps
+    - manageapps/status
+    - manageapps/finalizers
+    - manageworkspaces
+    - manageworkspaces/status
+    - manageworkspaces/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - endpoints
+    - events
+    - persistentvolumeclaims
+    - pods
+    - pods/exec
+    - secrets
+    - serviceaccounts
+    - services
+    - services/finalizers
+  verbs:
+    - '*'
+- apiGroups:
+    - ''
+  resources:
+    - namespaces
+  verbs:
+    - get
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - '*'
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+    - cronjobs
+  verbs:
+    - '*'
+- apiGroups:
+    - extensions
+  resources:
+    - ingresses
+    - deployments
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+    - deletecollection
+- apiGroups:
+    - policy
+  resources:
+    - poddisruptionbudgets
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - networkpolicies
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apiextensions.k8s.io
+  resources:
+    - customresourcedefinitions
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - authorization.openshift.io
+  resources:
+    - clusterroles
+    - clusterrolebindings
+    - rolebindings
+    - roles
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - clusterroles
+    - clusterrolebindings
+    - rolebindings
+    - roles
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuer
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - mas.ibm.com
+    - iot.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - iot.apps.mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resourceNames:
+    - iot-operator
+    - iot-actions-operator
+    - iot-auth-operator
+    - iot-datapower-operator
+    - iot-devops-operator
+    - iot-dm-operator
+    - iot-dsc-operator
+    - iot-guardian-operator
+    - iot-mbgx-operator
+    - iot-mfgx-operator
+    - iot-orgmgmt-operator
+    - iot-provision-operator
+    - iot-registry-operator
+    - iot-state-operator
+    - iot-webui-operator
+  resources:
+    - deployments/finalizers
+  verbs:
+    - update
+- apiGroups:
+    - monitoring.coreos.com
+  resources:
+    - servicemonitors
+    - prometheusrules
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+- apiGroups:
+    - integreatly.org
+  resources:
+    - grafanadashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+- apiGroups:
+    - monitoringcontroller.cloud.ibm.com
+  resources:
+    - monitoringdashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+    - pods
+    - pods/exec
+    - pods/log
+    - services
+    - persistentvolumeclaims
+    - persistentvolumes
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - serviceaccounts
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - networkpolicies
+  verbs:
+    - get
+    - create
+    - patch
+    - list
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - binding.operators.coreos.com
+  resources:
+    - servicebindings
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - image.openshift.io
+    - build.openshift.io
+  resources:
+    - builds
+    - buildconfigs
+    - buildconfigs/instantiatebinary
+    - imagestreams
+    - imagestreamtags
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - healthapps
+    - healthapps/status
+    - healthapps/finalizers
+    - healthworkspaces
+    - healthworkspaces/status
+    - healthworkspaces/finalizers
+    - manageapps
+    - manageapps/status
+    - manageapps/finalizers
+    - managebuilds
+    - managebuilds/status
+    - managebuilds/finalizers
+    - managedeployments
+    - managedeployments/status
+    - managedeployments/finalizers
+    - manageserverbundles
+    - manageserverbundles/status
+    - manageserverbundles/finalizers
+    - manageworkspaces
+    - manageworkspaces/status
+    - manageworkspaces/finalizers
+    - builddatainterpreters
+    - builddatainterpreters/status
+    - builddatainterpreters/finalizers
+    - managestatuscheckers
+    - managestatuscheckers/status
+    - managestatuscheckers/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - truststore-mgr.ibm.com
+  resources:
+    - truststores
+    - truststores/status
+    - truststores/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - admissionregistration.k8s.io
+  resources:
+    - validatingwebhookconfigurations
+  verbs:
+    - get
+    - list
+    - patch
+    - update
+    - create
+    - delete
+- apiGroups:
+    - ''
+  resources:
+    - pods
+    - services
+    - serviceaccounts
+    - services/finalizers
+    - endpoints
+    - persistentvolumeclaims
+    - events
+    - configmaps
+    - secrets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - namespaces
+  verbs:
+    - get
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+  verbs:
+    - '*'
+- apiGroups:
+    - ''
+  resources:
+    - events
+  verbs:
+    - create
+- apiGroups:
+    - monitoring.coreos.com
+  resources:
+    - servicemonitors
+    - prometheusrules
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+- apiGroups:
+    - integreatly.org
+  resources:
+    - grafanadashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+- apiGroups:
+    - monitoringcontroller.cloud.ibm.com
+  resources:
+    - monitoringdashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+- apiGroups:
+    - apps
+  resourceNames:
+    - monitor-operator
+  resources:
+    - deployments/finalizers
+  verbs:
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - pods
+  verbs:
+    - get
+- apiGroups:
+    - apps
+  resources:
+    - replicasets
+    - deployments
+  verbs:
+    - get
+- apiGroups:
+    - mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+    - cronjobs
+  verbs:
+    - '*'
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - ingresses
+    - networkpolicies
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuer
+  verbs:
+    - create
+    - get
+    - delete
+    - deletecollection
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+    - apps.openshift.io
+  resources:
+    - deploymentconfigs
+    - deploymentconfigs/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - monitorapps
+    - monitorapps/status
+    - monitorapps/finalizers
+    - monitorworkspaces
+    - monitorworkspaces/status
+    - monitorworkspaces/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+    - pods
+    - pods/exec
+    - pods/log
+    - services
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - serviceaccounts
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - networkpolicies
+  verbs:
+    - get
+    - create
+    - patch
+    - list
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - binding.operators.coreos.com
+  resources:
+    - servicebindings
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - msoapps
+    - msoapps/status
+    - msoapps/finalizers
+    - msoworkspaces
+    - msoworkspaces/status
+    - msoworkspaces/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - truststore-mgr.ibm.com
+  resources:
+    - truststores
+    - truststores/status
+    - truststores/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - pods
+    - services
+    - services/finalizers
+    - serviceaccounts
+    - services/finalizers
+    - endpoints
+    - persistentvolumeclaims
+    - events
+    - configmaps
+    - secrets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - namespaces
+  verbs:
+    - get
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+  verbs:
+    - '*'
+- apiGroups:
+    - ''
+  resources:
+    - events
+  verbs:
+    - create
+- apiGroups:
+    - monitoring.coreos.com
+  resources:
+    - servicemonitors
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resourceNames:
+    - predict-operator
+  resources:
+    - deployments/finalizers
+  verbs:
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - pods
+  verbs:
+    - get
+- apiGroups:
+    - apps
+  resources:
+    - replicasets
+    - deployments
+  verbs:
+    - get
+- apiGroups:
+    - mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+    - cronjobs
+  verbs:
+    - '*'
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - ingresses
+    - networkpolicies
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuer
+  verbs:
+    - create
+    - get
+    - delete
+    - deletecollection
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+    - apps.openshift.io
+  resources:
+    - deploymentconfigs
+    - deploymentconfigs/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - autoscaling
+  resources:
+    - horizontalpodautoscalers
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - patch
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - roles
+    - rolebindings
+    - serviceaccounts
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - extensions
+  resources:
+    - statefulsets
+    - statefulsets/scale
+    - daemonsets
+    - deployments
+    - deployments/rollback
+    - deployments/scale
+    - ingresses
+    - networkpolicies
+    - replicasets
+    - replicasets/scale
+    - replicationcontrollers/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - patch
+    - update
+- apiGroups:
+    - integreatly.org
+  resources:
+    - grafanadashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - monitoringcontroller.cloud.ibm.com
+  resources:
+    - monitoringdashboards
+  verbs:
+    - get
+    - create
+    - delete
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - predictapps
+    - predictapps/status
+    - predictapps/finalizers
+    - predictworkspaces
+    - predictworkspaces/status
+    - predictworkspaces/finalizers
+    - healthapps
+    - healthapps/status
+    - healthapps/finalizers
+    - healthworkspaces
+    - healthworkspaces/status
+    - healthworkspaces/finalizers
+    - manageapps
+    - manageapps/status
+    - manageapps/finalizers
+    - manageworkspaces
+    - manageworkspaces/status
+    - manageworkspaces/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - pods
+    - services
+    - serviceaccounts
+    - services/finalizers
+    - endpoints
+    - persistentvolumeclaims
+    - events
+    - configmaps
+    - secrets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - namespaces
+  verbs:
+    - get
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+  verbs:
+    - '*'
+- apiGroups:
+    - ''
+  resources:
+    - events
+  verbs:
+    - create
+- apiGroups:
+    - monitoring.coreos.com
+  resources:
+    - servicemonitors
+  verbs:
+    - get
+    - create
+- apiGroups:
+    - apps
+  resourceNames:
+    - safety-operator
+  resources:
+    - deployments/finalizers
+  verbs:
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - pods
+  verbs:
+    - get
+- apiGroups:
+    - apps
+  resources:
+    - replicasets
+    - deployments
+  verbs:
+    - get
+- apiGroups:
+    - mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+  verbs:
+    - '*'
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - ingresses
+    - networkpolicies
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuer
+  verbs:
+    - create
+    - get
+    - delete
+    - deletecollection
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+    - apps.openshift.io
+  resources:
+    - deploymentconfigs
+    - deploymentconfigs/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - safetys
+    - safetys/status
+    - safetys/finalizers
+    - safetyworkspaces
+    - safetyworkspaces/status
+    - safetyworkspaces/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - pods
+    - services
+    - serviceaccounts
+    - services/finalizers
+    - endpoints
+    - persistentvolumeclaims
+    - events
+    - configmaps
+    - secrets
+    - services/proxy
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - namespaces
+  verbs:
+    - get
+- apiGroups:
+    - ''
+  resources:
+    - configmaps
+    - secrets
+  verbs:
+    - '*'
+- apiGroups:
+    - ''
+  resources:
+    - events
+  verbs:
+    - create
+- apiGroups:
+    - monitoring.coreos.com
+  resources:
+    - servicemonitors
+  verbs:
+    - get
+    - create
+- apiGroups:
+    - apps
+  resourceNames:
+    - visualinspection-operator
+  resources:
+    - deployments/finalizers
+  verbs:
+    - update
+- apiGroups:
+    - ''
+  resources:
+    - pods
+  verbs:
+    - get
+- apiGroups:
+    - apps
+  resources:
+    - replicasets
+    - deployments
+  verbs:
+    - get
+- apiGroups:
+    - mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+  verbs:
+    - '*'
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes/custom-host
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - ingresses
+    - networkpolicies
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+    - clusterroles
+    - clusterroles/finalizers
+  verbs:
+    - '*'
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuer
+  verbs:
+    - create
+    - get
+    - delete
+    - deletecollection
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+    - apps.openshift.io
+  resources:
+    - deploymentconfigs
+    - deploymentconfigs/scale
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - security.openshift.io
+  resources:
+    - securitycontextconstraints
+  verbs:
+    - get
+    - list
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - visualinspectionapps
+    - visualinspectionapps/status
+    - visualinspectionapps/finalizers
+    - visualinspectionappworkspaces
+    - visualinspectionappworkspaces/status
+    - visualinspectionappworkspaces/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps.mas.ibm.com
+  resources:
+    - visualinspectionapps
+    - visualinspectionapps/status
+    - visualinspectionapps/finalizers
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - ''
+  resources:
+    - secrets
+    - pods
+    - pods/exec
+    - pods/log
+    - configmaps
+    - services
+    - persistentvolumeclaims
+    - persistentvolumes
+  verbs:
+    - '*'
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - '*'
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - networkpolicies
+  verbs:
+    - '*'
+- apiGroups:
+    - apiextensions.k8s.io
+  resources:
+    - customresourcedefinitions
+  verbs:
+    - '*'
+- apiGroups:
+    - mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - list
+    - get
+- apiGroups:
+    - asset-data-dictionary.ibm.com
+  resources:
+    - assetdatadictionaries
+    - assetdatadictionaries/status
+    - assetdatadictionaries/finalizers
+  verbs:
+    - '*'
+- apiGroups:
+    - asset-data-dictionary.ibm.com
+  resources:
+    - datadictionaryworkspaces
+    - datadictionaryworkspaces/status
+    - datadictionaryworkspaces/finalizers
+  verbs:
+    - '*'
+- apiGroups:
+    - binding.operators.coreos.com
+  resources:
+    - servicebindings
+  verbs:
+    - '*'
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+  verbs:
+    - '*'
+- apiGroups:
+    - truststore-mgr.ibm.com
+  resources:
+    - truststores
+  verbs:
+    - '*'
+- apiGroups:
+    - truststore-mgr.ibm.com
+  resources:
+    - truststores/status
+  verbs:
+    - get
+- apiGroups:
+    - project.openshift.io
+  resources:
+    - projects
+  verbs:
+    - '*'
+- apiGroups:
+    - operators.coreos.com
+  resources:
+    - subscriptions
+    - operatorgroups
+  verbs:
+    - '*'
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuers
+    - issuers
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - clusterrolebindings
+    - clusterroles
+  verbs:
+    - create
+    - get
+    - update
+    - delete
+    - watch
+    - list
+    - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ibm-mas-operator
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+- apiGroups:
+    - ''
+  resources:
+    - events
+    - secrets
+    - pods
+    - pods/exec
+    - pods/log
+    - configmaps
+    - services
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes/custom-host
+  verbs:
+    - create
+- apiGroups:
+    - route.openshift.io
+  resources:
+    - routes/status
+  verbs:
+    - get
+    - list
+    - watch
+    - update
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - networkpolicies
+  verbs:
+    - create
+    - delete
+    - deletecollection
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+    - clusterissuers
+    - issuers
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - truststore-mgr.ibm.com
+  resources:
+    - truststores
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - truststore-mgr.ibm.com
+  resources:
+    - truststores/status
+  verbs:
+    - get
+- apiGroups:
+    - operator.ibm.com
+  resources:
+    - operandrequests
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - binding.operators.coreos.com
+  resources:
+    - servicebindings
+  verbs:
+    - get
+    - watch
+    - list
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - core.mas.ibm.com
+  resources:
+    - suites
+    - suites/status
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - config.mas.ibm.com
+    - internal.mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+- apiGroups:
+    - core.mas.ibm.com
+  resources:
+    - workspaces
+  verbs:
+    - delete
+    - get
+    - list
+    - watch
+- apiGroups:
+    - addons.mas.ibm.com
+  resources:
+    - '*'
+  verbs:
+    - delete
+    - get
+    - list
+    - watch
+---
+# ibm-mas-config-editor_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-config-editor
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-config-editor
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-config-editor
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-config-editor_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-config-editor
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+    verbs:
+      - get
+      - list
+      - create
+      - delete
+---
+# ibm-mas-config-editor_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-config-editor
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-config-reader_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-config-reader
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-config-reader
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-config-reader
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-config-reader_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-config-reader
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+    verbs:
+      - get
+---
+# ibm-mas-config-reader_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-config-reader
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-coreapi_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-coreapi
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-coreapi
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-coreapi
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-coreapi_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-coreapi
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - '*'
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - addons.mas.ibm.com
+    resources:
+      - '*'
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - patch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - workspaces
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+---
+# ibm-mas-coreapi_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-coreapi
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-addons_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-addons
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-addons
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-addons
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-addons_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-addons
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - addons.mas.ibm.com
+    resources:
+      - appconnects
+      - appconnects/status
+      - appconnects/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - addons.mas.ibm.com
+    resources:
+      - mviedges
+      - mviedges/status
+      - mviedges/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - addons.mas.ibm.com
+    resources:
+      - humai
+      - humai/status
+      - humai/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+    verbs:
+      - get
+      - watch
+      - list
+      - create
+      - update
+      - patch
+      - delete
+---
+# ibm-mas-entitymgr-addons_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-addons
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-bascfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-bascfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-bascfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-bascfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-bascfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-bascfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - services
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - batch
+    resources:
+      - cronjobs
+      - jobs
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - bascfgs
+      - bascfgs/status
+      - bascfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+    verbs:
+      - create
+      - get
+      - list
+      - update
+      - watch
+      - patch
+---
+# ibm-mas-entitymgr-bascfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-bascfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-coreidp_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-coreidp
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-coreidp
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-coreidp
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-coreidp_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-coreidp
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+      - services
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+      - suites/status
+    verbs:
+      - get
+      - list
+      - watch
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - internal.mas.ibm.com
+    resources:
+      - coreidps
+      - coreidps/status
+      - coreidps/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+    verbs:
+      - get
+      - watch
+      - list
+      - create
+      - update
+      - patch
+      - delete
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - idpcfgs
+      - idpcfgs/status
+      - idpcfgs/finalizers
+      - mongocfgs
+      - mongocfgs/status
+      - mongocfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - truststore-mgr.ibm.com
+    resources:
+      - truststores
+      - truststores/status
+      - truststores/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - batch
+    resources:
+      - jobs
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes/custom-host
+    verbs:
+      - create
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes/status
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+---
+# ibm-mas-entitymgr-coreidp_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-coreidp
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-idpcfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-idpcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-idpcfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-idpcfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-idpcfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-idpcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - idpcfgs
+      - idpcfgs/status
+      - idpcfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - internal.mas.ibm.com
+    resources:
+      - coreidps
+    verbs:
+      - get
+      - list
+      - watch
+---
+# ibm-mas-entitymgr-idpcfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-idpcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-jdbccfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-jdbccfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-jdbccfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-jdbccfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-jdbccfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-jdbccfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+      - events
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - jdbccfgs
+      - jdbccfgs/status
+      - jdbccfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites/status
+    verbs:
+      - get
+---
+# ibm-mas-entitymgr-jdbccfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-jdbccfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-kafkacfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-kafkacfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-kafkacfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-kafkacfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-kafkacfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-kafkacfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - kafkacfgs
+      - kafkacfgs/status
+      - kafkacfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites/status
+    verbs:
+      - get
+---
+# ibm-mas-entitymgr-kafkacfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-kafkacfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-mongocfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-mongocfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-mongocfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-mongocfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-mongocfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-mongocfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - mongocfgs
+      - mongocfgs/status
+      - mongocfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+---
+# ibm-mas-entitymgr-mongocfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-mongocfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-objectstoragecfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-objectstoragecfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-objectstoragecfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-objectstoragecfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-objectstoragecfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-objectstoragecfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - objectstoragecfgs
+      - objectstoragecfgs/status
+      - objectstoragecfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites/status
+    verbs:
+      - get
+---
+# ibm-mas-entitymgr-objectstoragecfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-objectstoragecfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-pushcfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-pushcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-pushcfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-pushcfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-pushcfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-pushcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+      - services
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - pushnotificationcfgs
+      - pushnotificationcfgs/status
+      - pushnotificationcfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites/status
+    verbs:
+      - get
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+    verbs:
+      - create
+      - get
+      - list
+      - update
+      - watch
+      - patch
+      - delete
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes/custom-host
+    verbs:
+      - create
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes/status
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+---
+# ibm-mas-entitymgr-pushcfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-pushcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-scimcfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-scimcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-scimcfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-scimcfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-scimcfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-scimcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+      - services
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - scimcfgs
+      - scimcfgs/status
+      - scimcfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - batch
+    resources:
+      - cronjobs
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - truststore-mgr.ibm.com
+    resources:
+      - truststores
+      - truststores/status
+      - truststores/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+    verbs:
+      - create
+      - get
+      - list
+      - update
+      - watch
+      - patch
+---
+# ibm-mas-entitymgr-scimcfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-scimcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-slscfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-slscfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-slscfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-slscfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-slscfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-slscfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - services
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+      - suites/status
+    verbs:
+      - get
+      - list
+      - watch
+      - patch
+      - update
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - slscfgs
+      - slscfgs/status
+      - slscfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+    verbs:
+      - create
+      - get
+      - list
+      - update
+      - watch
+      - patch
+---
+# ibm-mas-entitymgr-slscfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-slscfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-smtpcfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-smtpcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-smtpcfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-smtpcfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-smtpcfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-smtpcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+      - services
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - smtpcfgs
+      - smtpcfgs/status
+      - smtpcfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - truststore-mgr.ibm.com
+    resources:
+      - truststores
+      - truststores/status
+      - truststores/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+    verbs:
+      - create
+      - get
+      - list
+      - update
+      - watch
+      - patch
+---
+# ibm-mas-entitymgr-smtpcfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-smtpcfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-watsonstudiocfg_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-watsonstudiocfg
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-watsonstudiocfg
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-watsonstudiocfg
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-watsonstudiocfg_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-watsonstudiocfg
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - watsonstudiocfgs
+      - watsonstudiocfgs/status
+      - watsonstudiocfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites/status
+    verbs:
+      - get
+---
+# ibm-mas-entitymgr-watsonstudiocfg_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-watsonstudiocfg
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-ws_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-ws
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-entitymgr-ws
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-ws
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-entitymgr-ws_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-ws
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - events
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - workspaces
+      - workspaces/status
+      - workspaces/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes/custom-host
+    verbs:
+      - create
+  - apiGroups:
+      - route.openshift.io
+    resources:
+      - routes/status
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+      - issuers
+      - clusterissuers
+    verbs:
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - create
+      - update
+      - watch
+---
+# ibm-mas-entitymgr-ws_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-entitymgr-ws
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-internalapi_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-internalapi
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-internalapi
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-internalapi
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-internalapi_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-internalapi
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+    verbs:
+      - get
+---
+# ibm-mas-internalapi_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-internalapi
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-licensing-mediator_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-licensing-mediator
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-licensing-mediator
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-licensing-mediator
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-licensing-mediator_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-licensing-mediator
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - slscfgs
+      - slscfgs/status
+      - slscfgs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+---
+# ibm-mas-licensing-mediator_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-licensing-mediator
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-mobileapi_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-mobileapi
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-mobileapi
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-mobileapi
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-mobileapi_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-mobileapi
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - addons.mas.ibm.com
+    resources:
+      - '*'
+    verbs:
+      - get
+---
+# ibm-mas-mobileapi_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-mobileapi
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-monagent-mas_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-monagent-mas
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-monagent-mas
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-monagent-mas
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-monagent-mas_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-monagent-mas
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+    verbs:
+      - get
+      - list
+      - watch
+      - patch
+      - create
+      - delete
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suite
+      - suites
+      - suites/status
+      - suites/finalizers
+    verbs:
+      - get
+      - list
+      - watch
+      - patch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - mongocfg
+      - mongocfgs
+      - mongocfgs/status
+      - mongocfgs/finalizers
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ''
+    resources:
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - bascfgs
+      - bascfgs/status
+      - bascfgs/finalizers
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - slscfgs
+      - slscfgs/status
+      - slscfgs/finalizers
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - internal.mas.ibm.com
+    resources:
+      - coreidps
+      - coreidps/status
+      - coreidps/finalizers
+    verbs:
+      - get
+      - list
+      - watch
+---
+# ibm-mas-monagent-mas_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-monagent-mas
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-nopriv_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-nopriv
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-operator_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-operator
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-scim-agent_rbac.authorization.k8s.io_v1_rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-scim-agent
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-scim-agent
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-scim-agent
+    namespace: mas-{{INSTANCE_ID}}-core
+---
+# ibm-mas-scim-agent_rbac.authorization.k8s.io_v1_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-scim-agent
+  namespace: mas-{{INSTANCE_ID}}-core
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - secrets
+    verbs:
+      - get
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - scimcfgs/status
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - config.mas.ibm.com
+    resources:
+      - scimcfgs
+    verbs:
+      - get
+      - list
+      - watch
+---
+# ibm-mas-scim-agent_v1_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: ibm-mas-scim-agent
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# internal.mas.ibm.com_coreidps.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    service.binding/credentials: path={.status.credentials.oauth.admin},objectType=Secret
+    service.binding/url: path={.status.url}
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: ibm-mas
+    app.kubernetes.io/managed-by: olm
+    app.kubernetes.io/name: ibm-mas
+  name: coreidps.internal.mas.ibm.com
+spec:
+  group: internal.mas.ibm.com
+  names:
+    kind: CoreIDP
+    listKind: CoreIDPList
+    plural: coreidps
+    singular: coreidp
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - description: Overall status of the configuration
+      jsonPath: .status.conditions[?(@.type=='Ready')].reason
+      name: status
+      type: string
+    - description: Status of the Truststore used by coreidp
+      jsonPath: .status.conditions[?(@.type=='TruststoreReady')].reason
+      name: truststoreready
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: CoreIDP is the Schema for the coreidps API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of IDPCfg
+            properties:
+              domain:
+                description: Declares the top level domain that will be used for CoreIDP
+                minLength: 1
+                type: string
+              settings:
+                properties:
+                  icr:
+                    properties:
+                      cp:
+                        description: Configure the IBM Container registry for cp content (defaults to cp.icr.io/cp)
+                        type: string
+                    required:
+                    - cp
+                    type: object
+                required:
+                - icr
+                type: object
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            description: Status defines the observed state of IDPCfg
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
+---
+# Grant operator clusterrole to the operatorservice account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: ibm-mas-operator:{{INSTANCE_ID}}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: ibm-mas-operator:{{INSTANCE_ID}}
+subjects:
+- kind: ServiceAccount
+  name: ibm-mas-operator
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+# Grant mgr role to the mgr service account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ibm-mas-operator
+  namespace: mas-{{INSTANCE_ID}}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-mas-operator
+subjects:
+- kind: ServiceAccount
+  name: ibm-mas-operator
+  namespace: mas-{{INSTANCE_ID}}-core
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ibm-mas-operator
+spec:
+  selector:
+    matchLabels:
+      control-plane: ibm-mas
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        control-plane: ibm-mas
+    spec:
+      serviceAccountName: ibm-mas-operator
+      imagePullSecrets:
+        - name: ibm-entitlement
+      containers:
+        - name: manager
+          image: "icr.io/cpopen/ibm-mas:8.6.0"
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          resources:
+            requests:
+              cpu: 0.1
+              memory: 128Mi
+            limits:
+              cpu: 0.4
+              memory: 1024Mi
+      terminationGracePeriodSeconds: 10

@@ -1,0 +1,474 @@
+PODATKI O LICENCIRANJU
+
+Spodaj navedeni programi so licencirani na podlagi naslednjih določb in pogojev licenčne informacije, ki veljajo poleg pogojev licence za program, s katerimi naročnik in IBM predhodno soglašata. Če naročnik predhodno ne soglaša s pogoji, ki veljajo za program, velja Mednarodna programska licenčna pogodba (Z125-3301-14).
+
+Ime programa (Številka programa):
+IBM Maximo Application Suite v8.6 (5737-M66)
+
+Za uporabo programa s strani imetnika licence veljajo naslednji standardni pogoji.
+
+Omejena pravica do uporabe
+
+Z izjemo paketnih programov lahko imetnik licence uporablja vso IBM-ovo programsko opremo, ki je zagotovljena s programom, samo za podporo pri uporabi glavnega programa na podlagi tega dokumenta z informacijami o licenciranju, kar pomeni, da mora biti takšna uporaba neposredno povezana z licencirano uporabo glavnega programa.
+
+Imetnik licence ne sme uporabljati programa za nudenje komercialnih storitev informacijske tehnologije nobeni tretji osebi, za nudenje komercialnega gostovanja ali dodeljevanja časa oziroma za podlicenciranje programa ali njegovo dajanje v najem ali zakup.
+
+Prepovedana uporaba
+
+Imetnik licence ne sme uporabljati programa ali za njegovo uporabo pooblastiti drugih uporabnikov, če lahko napaka programa povzroči smrt, telesne poškodbe ali škodo na lastnini ali v okolju.
+
+Podporni programi
+
+Imetnik licence lahko namesti in uporablja spodaj navedene podporne programe samo za podporo svoji uporabi glavnega programa iz te pogodbe. Besedna zveza "v podporo svoji uporabi" vključuje samo uporabo, ki je potrebna ali kako drugače neposredno povezana z licenčno uporabo glavnega ali drugega podpornega programa. Podpornih programov ni dovoljeno uporabljati za noben drug namen. Podpornemu programu so lahko priložena licenčna določila, ki (če obstajajo) veljajo za uporabo podpornega programa s strani imetnika licence. V primeru neskladij določbe iz teh licenčnih informacij prevladajo nad določbami podpornega programa. Imetnik licence mora pridobiti zadostno število pooblastil za program kot celoto, da pokrijejo namestitev in uporabo vseh podpornih programov, razen če so v tem dokumentu z informacijami o licenci zagotovljena ločena pooblastila. Če je ta program na primer licenciran na podlagi navideznega procesorskega jedra (VPC-ja) in želi imetnik licence namestiti glavni ali podporni program na računalnik z 10 VPC-ji in drug podporni program na drug računalnik z 10 VPC-ji, mora pridobiti 20 pooblastil VPC za program.
+
+Podporni programi:
+IBM Cloud Pak for Data Enterprise Edition
+IBM DB2 Standard Edition 11.5
+IBM Watson Discovery for Cloud Pak for Data
+Watson Knowledge Studio
+
+Dovoljene komponente
+
+Imetnik licence lahko uporablja samo naslednje komponente ali funkcije določenega paketnega ali podpornega programa:
+Control Plane (of Cloud Pak for Data Enterprise Edition)
+Common Services (of Cloud Pak for Data Enterprise Edition)
+Portworx Storage (of Cloud Pak for Data Enterprise Edition)
+Watson Studio (of Cloud Pak for Data Enterprise Edition)
+Watson Machine Learning (of Cloud Pak for Data Enterprise Edition)
+Db2 Warehouse - only SMP mode (of Cloud Pak for Data Enterprise Edition)
+Watson Discovery (of Cloud Pak for Data Enterprise Edition)
+IBM DB2 Standard Edition 11.5
+
+Komponente, ki niso uporabljene za vzpostavitev potrebnih pooblastil
+
+Imetnik licence lahko na podlagi licenčnih pogojev namesti in uporablja naslednje komponente programa, vendar se te komponente ne uporabljajo za določitev števila pooblastil, potrebnih za program.
+Control Plane (of Cloud Pak for Data Enterprise Edition)
+Common Services (of Cloud Pak for Data Enterprise Edition)
+Portworx Storage (of Cloud Pak for Data Enterprise Edition)
+Watson Studio (of Cloud Pak for Data Enterprise Edition)
+Watson Machine Learning (of Cloud Pak for Data Enterprise Edition)
+Db2 Warehouse - only SMP mode (of Cloud Pak for Data Enterprise Edition)
+Watson Discovery (of Cloud Pak for Data Enterprise Edition)
+IBM DB2 Standard Edition 11.5
+
+Ločeno licencirana koda
+
+Vsaka komponenta, navedena v datoteki NON_IBM_LICENSE, šteje za "ločeno licencirano kodo", ki je licencirana imetniku licence na podlagi pogojev ustreznih licenčnih pogodb drugih ponudnikov, določenih v datotekah NON_IBM_LICENSE, ki so priložene programu in ne tej pogodbi. Nadaljnje posodobitve ali popravki programa lahko vsebujejo dodatno ločeno licencirano kodo. Takšna dodatna, ločeno licencirana koda in povezane licence so navedeni v ustrezni datoteki NON_IBM_LICENSE, priloženi posodobitvi ali popravku programa. 
+
+Opomba: ne glede na katerekoli pogoje v licenčni pogodbi drugega ponudnika velja za to pogodbo ali katerokoli drugo pogodbo, ki jo sklene imetnik licence z IBM-om glede ločeno licencirane kode, naslednje:
+(a) IBM jo zagotovi imetniku licence BREZ VSAKRŠNIH JAMSTEV IN ZAVRAČA KATERAKOLI IN VSA IZRECNA TER ZAKONSKA JAMSTVA IN POGOJE, KAR MED DRUGIM VKLJUČUJE TUDI JAMSTVO PRAVNEGA NASLOVA, NEKRŠENJA ALI NEOVIRANJA TER ZAKONSKA JAMSTVA IN POGOJE ZA PRODAJNOST TER PRIMERNOST ZA DOLOČEN NAMEN, VENDAR NI OMEJENO NANJE;
+(b) IBM ni odgovoren za nobeno neposredno, posredno, naključno, posebno, eksemplarično, kazensko ali posledično škodo, kar vključuje tudi izgubo podatkov, prihrankov in dobičkov, vendar ni omejeno nanje.
+
+Zasebnost
+
+Imetnik licence soglaša, da lahko IBM uporablja tehnologije piškotkov in sledenja za zbiranje osebnih podatkov pri zbiranju statistik in informacij o uporabi podatkov, ki so ustvarjene za izboljšanje uporabniške izkušnje in/ali za oblikovanje interakcij z uporabniki v skladu z IBM-vim spletnim pravilnikom o zasebnosti, ki je na voljo na spletnem mestu http://www.ibm.com/privacy/.
+
+Za uporabo programa s strani imetnika licence morda veljajo naslednje merske enote.
+
+Pooblaščeni uporabnik
+
+Pooblaščeni uporabnik je merska enota, na podlagi katere je lahko licenciran program. Pooblaščeni uporabnik je specifična oseba, ki ji je dodeljen dostop do programa. Program je lahko nameščen na poljubno število računalnikov ali strežnikov, vsakemu pooblaščenemu uporabniku pa je kadarkoli omogočen sočasen dostop do poljubnega števila primerkov programa. Imetnik licence mora pridobiti ločena, namenska pooblastila za vsakega pooblaščenega uporabnika, ki ima dodeljen kakršenkoli neposreden ali posreden dostop do programa (na primer: prek programa za multipleksiranje, naprave ali strežnika aplikacij). Pooblastilo za pooblaščenega uporabnika je edinstveno za tega pooblaščenega uporabnika in ga ni mogoče souporabljati, niti ga na novo dodeliti, razen če gre za trajen prenos pravic pooblaščenega uporabnika na drugo osebo.
+
+Sočasni uporabnik
+
+Sočasni uporabnik je merska enota, na podlagi katere je lahko licenciran program. Sočasni uporabnik je oseba, ki kadarkoli dostopa do programa. Ne glede ne to, ali oseba sočasno in večkrat dostopa do programa, šteje samo kot posamezen sočasni uporabnik. Imetnik licence lahko namesti program na poljubno število računalnikov ali strežnikov, vendar mora pridobiti pooblastila za največje dovoljeno število sočasnih uporabnikov, ki sočasno dostopajo do programa. Imetnik licence mora pridobiti pooblastilo za vsakega sočasnega uporabnika, ki na kakršenkoli način dostopa do programa, pa naj bo neposredno ali posredno (na primer: prek programa za multipleksiranje, naprave ali aplikacijskega strežnika) in prek kakršnihkoli sredstev.
+
+Namestitev
+
+Namestitev je merska enota, na podlagi katere je lahko licenciran program. Namestitev je nameščena kopija programa na fizični ali navidezni disk, ki je na voljo za izvajanje na računalniku. Imetnik licence mora pridobiti pooblastilo za vsako namestitev programa.
+
+Za uporabo programa s strani imetnike licence poleg zgoraj navedenih pogojev veljajo tudi naslednji pogoji.
+
+AppPoint je merska enota, na podlagi katere je mogoče licencirati program. AppPoint je splošna enota vrednosti. Imetnik licence mora pridobiti zadostno število pooblastil AppPoint za pokritje skupnega števila pooblastil, zahtevanih za pooblaščeno uporabo programa.
+Možnosti pretvorbe pooblastil za navedeni program:
+Osnovni uporabnik za IBM-ove skrbniške izdelke
+
+- Razmerje pooblastil za pretvorbo: 1 pooblaščeni uporabnik/10 pooblastil AppPoint
+
+Premium uporabnik za IBM-ove skrbniške izdelke
+
+- Razmerje pooblastil za pretvorbo: 1 pooblaščeni uporabnik/15 pooblastil AppPoint
+
+Omejeni uporabnik IBM-ovih aplikacij
+
+- Razmerje pooblastil za pretvorbo: 1 sočasni uporabnik/5 pooblastil AppPoint
+- Razmerje pooblastil za pretvorbo: 1 pooblaščeni uporabnik/2 pooblastili AppPoint
+
+Osnovni uporabnik IBM-ovih aplikacij
+
+- Razmerje pooblastil za pretvorbo: 1 sočasni uporabnik/10 pooblastil AppPoint
+- Razmerje pooblastil za pretvorbo: 1 pooblaščeni uporabnik/3 pooblastila AppPoint
+
+Premium uporabnik IBM-ovih aplikacij
+
+- Razmerje pooblastil za pretvorbo: 1 sočasni uporabnik/15 pooblastil AppPoint
+- Razmerje pooblastil za pretvorbo: 1 pooblaščeni uporabnik/5 pooblastil AppPoint
+
+Namestitev IBM Maximo Connector for Oracle Applications
+
+- Razmerje pooblastil za pretvorbo: 1 namestitev/80 pooblastil AppPointsb
+
+Namestitev IBM Maximo Connector for SAP Applications
+
+- Razmerje pooblastil za pretvorbo: 1 namestitev/80 pooblastil AppPointsb
+
+Namestitev IBM Maximo Spatial
+
+- Razmerje pooblastil za pretvorbo: 1 namestitev/20 pooblastil AppPoints
+
+Namestitev IBM Maximo Visual Inspection
+
+- Razmerje pooblastil za pretvorbo: 1 namestitev/45 pooblastil AppPoints
+
+Namestitev IBM Maximo Visual Inspection Edge
+
+- Razmerje pooblastil za pretvorbo: 1 namestitev/1 pooblastilo AppPoints
+
+Namestitev IBM Maximo Health and Predict - Utilities
+
+- Razmerje pooblastil za pretvorbo: 1 namestitev/60 pooblastil AppPoints
+
+Namestitev IBM Maximo Assist
+
+- Razmerje pooblastil za pretvorbo: 1 namestitev/150 pooblastil AppPoints
+
+Namestitev IBM Maximo Civil Infrastructure
+
+- Razmerje pooblastil za pretvorbo: 1 namestitev/50 pooblastil AppPoints
+
+"Razmerje pooblastil za pretvorbo n/m" pomeni, da lahko imetnik licence pretvori določeno število ('n') pooblastil navedene metrike za navedeni program za vsako določeno število ('m') pooblastil navedene metrike za program. Po pretvorbi lahko imetnik licence za navedeni program uporablja samo pretvorjena pooblastila. Navedena pretvorba ne velja za nobena pooblastila za program, ki ni uporabljajo zahtevane vrste metrike.
+
+
+
+1. Omejitve za omejenega uporabnika aplikacije
+Omejeni uporabnik aplikacije lahko uporablja največ tri (3) module znotraj funkcije za upravljanje programa, pri čemer veljajo naslednje izjeme: 1) omejeni uporabnik aplikacije lahko dostopa do vseh modulov, vendar samo za namen izvajanja in prikazovanja poročil, prikazovanja zapisov samo za branje, spreminjanja stanja zapisov in posodabljanja delovnih nalogov ter izvajanja pregledov, dodeljenih omejenemu uporabniku aplikacije, in 2 ) ne glede na točko 1) ne more omejeni uporabnik aplikacije na noben način dostopati do modulov za načrtovanje in razporejanje, opravljanje skrbništva, integracijo, varnost ter konfiguriranje sistema.
+2. Produkti Red Hat
+IBM zagotavlja podporo za produkte Red Hat samo, če ima imetnik licence aktivno naročnino in podporo za programsko opremo programa. Spodnje omejitve pooblastil veljajo samo za katero koli naročnino in podporo za programsko opremo, ki je v veljavi za program, in imetnika licence ne omejujejo pri uporabi produktov Red Hat, ki so licencirani ločeno. Poleg tega imetnik licence soglaša, da njegovo uporabo in podporo za produkte Red Hat urejajo naslednji pogoji (https://www.redhat.com/en/about/agreements).
+Produkti Red Hat:
+Red Hat Enterprise Linux
+Red Hat OpenShift Container Platform
+
+- Razmerje dodatnih pooblastil: prva točka AppPoint/166 VPC-jev, vsakih dodatnih 8 točk AppPoint/1 VPC
+
+"Razmerje dodatnih pooblastil n/m" pomeni, da prejme imetnik licence določeno število ('n') pooblastil navedene metrike za določeni program za vsako določeno število ('m') pooblastil navedene metrike za program kot celoto. Določeno razmerje ne velja za nobena pooblastila za program, ki ne uporabljajo zahtevane vrste metrike. Število pooblastil za določeni program se zaokroži na večkratnik 'n'.
+3. KOMPONENTE, KI NISO UPORABLJENE ZA VZPOSTAVITEV POTREBNIH POOBLASTIL
+Imetnik licence lahko na podlagi licenčnih pogojev namesti in uporablja naslednje komponente programa, vendar te komponente niso uporabljene za določitev števila pooblastil, potrebnih za program.
+
+- Vnašanje zahtev za storitev in ogledovanje stanja svojih zahtev za storitev.
+- Ustvarjanje in ogledovanje zahtevkov, ogledovanje predlog in ogledovanje osnutkov prek aplikacije Desktop Requisitions.
+- Aplikacija Anywhere Service Request
+- Ustvarjanje incidenta v aplikaciji Oil and Gas
+- Pregled incidentov v aplikaciji Oil and Gas
+- Servisni zahtevki v aplikaciji Oil and Gas
+- Ustvarjanje zahtevka za upravljanje spremembe (z dostopom do povezanim artefaktov samo za prikaz) v MOC v aplikaciji Oil and Gas
+- Ustvarjanje incidenta v aplikaciji Health, Safety and Environment
+- Pregledovanje incidentov v aplikaciji Health, Safety and Environment
+- Servisni zahtevki v Health, Safety and Environment Graphical Appointment Book v Manage
+- Zahteve za vozilo v aplikaciji Maximo Transportation
+- Dostopite do aplikacij Pregled računa v Maximo Service Providers.
+- Ustvarjanje in pregledovanje poročil o stanju prek možnosti "Ustvari poročilo stanja" v aplikaciji Nuclear
+- Prenesite podatke v MAS Safety prek osebnih in okoljskih naprav ter senzorjev (brez dostopa do nadzornih plošč ali aplikacij MAS).
+
+4. Zasebnost MAS
+IBM Maximo Application Suite (MAS) bo zabeležil podatke, potrebne za dostop do zbirke, in zagotovil, da so točke AppPoint pravilno upravljane glede na pooblastila posameznih uporabnikov. MAS tudi beleži uporabo v različnih komponentah, da lahko nadzoruje skladnosti MAS.
+5. Poročanje o uporabi komponent in porabi točk AppPoint
+Imetnik licence soglaša, da se izvajalo samodejno poročanje IBM-u o uporabi programa in porabi točk AppPoint. Če samodejno poročanje ni na voljo ali je onemogočeno, bo imetnik licence vsak mesec prek elektronske pošte pošiljal poročila na končno točko, ki jo določi IBM, in sicer najpozneje v desetih delovnih dneh po koncu vsakega koledarskega meseca.
+IBM in njegove povezane družbe ter njihovi pogodbeniki lahko kjerkoli, kjer poslujejo, shranjujejo ali drugače obdelujejo poslovne kontaktne informacije (BCI) naročnika, njegovega osebja in pooblaščenih uporabnikov, na primer ime, službeno telefonsko številko, naslov, elektronski naslov in ID uporabnika za namene poslovanja z njimi. V primerih, ko je za takšno obdelavo potrebno obvestilo ali soglasje posameznikov, bo naročnik obvestilo podal in pridobil takšno soglasje. IBM-ova izjava o zasebnosti, ki je na voljo na spletnem mestu https://www.ibm.com/privacy/us/en/, vsebuje dodatne podrobnosti glede BCI in podatkov o računu, opisanih spodaj.
+Imetnik licence lahko konfigurira samodejno funkcijo poročanja programa, ki IBM-u pošilja določene informacije o uporabi. Imetnik licence se strinja, da bo programu dovolil shranjevanje in drugačno obdelavo poslovnih kontaktnih podatkov naročnika, njegovega osebja in pooblaščenih uporabnikov. Takšni podatki bodo uporabljeni v skladu z našimi skupnimi poslovnimi dejavnostmi, vključno s komuniciranjem z imetnikom licence, da se zagotovi skladnost z licenco. Imetnik licence soglaša, da bo programu dovolil shranjevanje in drugačno obdelavo podatkov o uporabi programa, uporabi sistema in zmogljivosti. Imetnik licence lahko kadar koli onemogoči funkcijo samodejnega poročanja in se odloči, da bo poročila o uporabi pošiljal IBM-u prek elektronske pošte.
+Imetnik licence tudi soglaša, da lahko do podatkov o imetniku licence dostopajo IBM-ovi uslužbenci ali pogodbeniki v kateri koli državi, pa naj bo znotraj Evropske unije ali zunaj nje.
+6. Java: licenca za uporabo programa v napravi v splošni uporabi ni dodeljena, zato mora imetnik licence zagotoviti, da program ne bo nameščen v napravo v splošni uporabi. Za te namene pomeni izraz »naprava v splošni rabi« napravo, ki vsebuje vgrajen mikroprocesor, vendar njen osnovni namen ni računalništvo. Trenutni primeri naprav v splošni uporabi vključujejo mobilne telefone, dlančnike (vključno z napravami BlackBerry), igralne konzole, komunikatorje, vgrajene krmilnike v avtomobilih, pametne naprave (gospodinjske aparate z vgrajenimi procesorji) in domače prehode (naprave s fiksno funkcijo, ki upravljajo podatke in nosilce podatkov za gospodinjstvo in ki ne morejo opravljati splošnih računalniških funkcij). Namizni računalniki, prenosni računalniki, računalniški strežniki za splošne namene, oddelčni strežniki, veliki računalniki, aplikacijski strežniki, tiskalniški strežniki, datotečni strežniki in naprave za shranjevanje podatkov pa so primeri naprav, ki niso v splošni uporabi.
+7. Ta program vključuje naslednjo programsko opremo, ki je ni dovoljeno uporabljati v zle namene.
+
+- json.jar
+
+8. Vzorčna koda IBM Datapower Gateway
+Program lahko vključuje vzorčno kodo. Če je na voljo vzorčna koda, bo ta v imeniku z imenom SAMPLES. Imetnik licence lahko vzorčno kodo uporablja in spreminja samo notranje s programom in s posebno serijsko oštevilčeno napravo IBM WebSphere DataPower, s katero je bil dobavljen izključno za namen konfiguriranja programa.
+Komponente solidDB
+Licenca za omejeno uporabo – solidDB: imetnik licence lahko namesti in uporablja eno kopijo podatkovnega strežnika solidDB samo v povezavi z licenčno uporabo programa za shranjevanje in upravljanje podatkov, ki jih uporablja in generira program, ne pa tudi za druge namene upravljanja podatkov. Ta podatkovni strežnik SolidDB z omejeno uporabo lahko uporabljajo samo notranje komponente programa. SolidDB se lahko na primer uporablja kot repozitorij za informacije o konfiguraciji, ki jih ustvari program, ni pa ga mogoče uporabiti za gradnjo ali razširjanje aplikacij po meri, ki shranjujejo poslovne podatke; ta licenca ne dovoli vhodnih povezav z bazo podatkov iz drugih aplikacij za poizvedbe ali ustvarjanje poročil.
+9. Maximo Mobile
+a. Aplikacija IBM Maximo Mobile (»aplikacija«), prenesena iz trgovin z aplikacijami, je oblikovana za uporabo z izdelkoma Maximo Application Suite in Maximo Asset Management. Strinjate se, da boste uporabljali aplikacijo samo v ta namen.
+b. Aplikacija uporabniku omogoča, da kot del uporabe Maximo Application Suite programske opreme posname fotografije stroje ali drugi sredstev. Čeprav je ta aplikacija oblikovana samo za fotografiranje sredstev, je lahko vanje nenamerno vključeno tudi ozadje. V skladu s to licenco mora imetnik licence zagotoviti, da ima vsa potrebna dovoljenja za fotografiranje in uporabo fotografij, vključno z dovoljenjem za fotografiranje na območju dela, vendar ni omejeno nanj.
+
+- Imetnik licence je izključno sam odgovoren za fotografije, glasovne posnetke, zabeležke in podobne elemente, posnete z aplikacijo in uporabljene v izdelku Maximo Application Suite ali Maximo Asset Management. .
+
+c. IBM lahko v kopijo aplikacije imetnika licence pošilja določena obvestila. Imetnik licence soglaša, da bo sprejel takšna obvestila.
+d. Kot del delovanja aplikacije se lahko prenašajo in shranjujejo nekateri podatki, kar vključuje tudi ID uporabnika, telefonske številke, e-poštne naslove, digitalni podpis, geografske lokacije ter podatke o kameri (za slike in video) in zvoku ter podobne osebne podatke, vendar ni omejeno nanje. Imetnik licence lahko vključi tudi druge osebne ali občutljive podatke. V kolikor ima imetnik licence nadzor nad takšnimi podatki, je odgovoren za upoštevanje vseh veljavnih predpisov o zasebnosti podatkov.
+e. Pooblastilo imetnika licence za uporabo aplikacije temelji na številu pooblaščenih omejenih uporabnikov, ki temelji na številu kupljenih točk AppPoint.
+f. Če aplikacijo posreduje IBM neposredno prek spletnega mesta Passport Advantage, imetnik licence soglaša, da je v veljavi mednarodna licenčna pogodba za program (Z125-3301-14). Imetnik licence soglaša, da njegove končne uporabnike zavezujejo takšni pogoji in je odgovoren za uporabo, ki je skladna z njimi.
+g. Ti pogoji prevladajo nad vsemi določbami in pogoji, ki jih prikaže aplikacija ob prvi uporabi.
+h. Aplikacija je pripravljena za zbiranje podatkov IoT, vključno z osebnimi podatki (PI/PII) iz senzorjev nosljivih naprav ali okoljskih senzorjev (kot so podatki o lokaciji in z njimi povezani okoljski podatki), v določenih okoliščinah pa tudi za zbiranje drugih virov informacij o zaposlenih, na primer o fizičnem stanju, da se jih zaščiti pred tveganji, da se izboljša varnost na delovnem mestu in se zagotovi skladnost z varnostnimi praksami. V kolikor ima imetnik licence nadzor nad takšnimi podatki IoT, je odgovoren za skladnost z vsemi veljavnimi predpisi o zasebnosti podatkov.
+
+- Aplikacija je namenjena za uporabo v delovnem okolju in se je ne sme uporabljati drugje. Če uslužbenci imetnika licence odkrijejo kakršnekoli varnostne težave, ki vplivajo nanje, njihove sodelavce ali delovno mesto, jih je treba poučiti, naj v skladu z vašimi pravilniki ustrezno ukrepajo, ne glede na to, ali aplikacija izda obvestilo o tveganju ali ne.
+
+i. Aplikacija se lahko uporablja za identificiranje delov in sredstev z ločenim nakupom izdelka IBM Maximo Application Suite AddOns – Parts Identifider Cloud Service
+10. Maximo Anywhere
+Naslednji pogoj velja za IBM Maximo Anywhere pri ustvarjanju in razmeščanju aplikacij Maximo Anywhere za sistem iOS (datoteke .ipa):
+
+- Imetnik licence potrjuje, da ima vse ustrezne licence za program za razvijalce družbe Apple in da zanj kot imetnika licence družbe Apple veljajo določbe ustrezne pogodbe za program za razvijalce družbe Apple. Imetnik licence tudi soglaša, da bo nadalje prilagodil hibridno kodo Maximo Anywhere skladno s svojimi zahtevami in bo zgradil hibridno kodo Maximo Anywhere z uporabo poverilnic za program za razvijalce družbe Apple. Imetnik licence je izključno odgovoren za nalaganje, vzdrževanje in odobritev dostopa do svojih prijavnih poverilnic in za njihovo stalno zaščito. IBM ni odgovoren za kakršno koli izgubo ali ogrožanje prijavnih poverilnic imetnika licence.
+
+11. App Connect
+Ta licenca zajema tudi vključitev pooblastila za omejeno uporabo integracije rešitve IBM App Connect Enterprise (ACE) for IBM AI Applications, kjer je en konec integracijskega vzorca rešitev IBM AI Applications. Organizacija IBM AI Applications (prek ustreznih IBM-ovih prodajnih in dobavnih mehanizmov) bo distribuirala komponente izdelka IBM App Connect Enterprise, navedene v tem dokumentu, na podlagi licence za omejeno uporabo.
+12. Dodatne podrobnosti za izdajo IBM DB2 Standard Edition
+Podporni program lahko uporablja največ 16 procesorskih jeder in 128 GB pomnilnika na vsakem fizičnem ali navideznem strežniku, toda če je podporni program uporabljen v gruči strežnikov, konfiguriranih za skupno delo z uporabo particioniranja baz podatkov ali druge dovoljene tehnologije združevanja v gruče, lahko podporni program uporablja največ 16 procesorskih jeder in 128 GB pomnilnika v vseh navideznih ali fizičnih strežnikih v tej gruči.
+13. WebSphere Application Server Liberty (Freemium)
+Imetnik licence ne sme uporabljati programa za več kot skupno 2 gigabajta prostora kopice JVM v vseh namestitvah, razen kadar se uporablja:
+a. v napravi razvijalca ali strežniku za gradnjo;
+b. izključno za namen preverjanja združljivosti z javno dostopno odprtokodno programsko opremo imetnika licence ali programsko opremo, ki jo imetnik licence komercialno prodaja
+Imetnik licence mora objaviti rezultate preskusov, ko je združljivost preverjena, ne glede na uporabljeni prostor kopice JVM.
+Za uporabo programa imetnika licence velja ta dokument z licenčnimi informacijami in spremljajoča mednarodna licenčna pogodba za programe brez garancije, razen če imetnik licence od IBM-a pridobi veljavno dokazilo o upravičenosti za različico tega programa, licencirano po mednarodni licenčni pogodbi za program, v tem primeru se osnovna pogodba in dokument z licenčnimi informacijami uporabljata za nadaljnjo uporabo programa imetnika licence.
+"Naprava razvijalca" je fizično ali navidezno namizno okolje s primarnim operacijskim sistemom in programom, do katerih dostopa in ju uporablja največ en (1) določen razvijalec. Fizična ali navidezna namizna okolja vključujejo lokalna in zunanja okolja v oblaku. Ko imetnik licence uporablja napravo razvijalca ali strežnik za gradnjo, imetnik licence nima pooblastil za uporabo programa za obdelavo delovnih obremenitev produkcije, simulacijo delovnih obremenitev produkcije ali preizkušanje razširljivosti katerekoli kode, aplikacije ali sistema.
+"Strežnik za gradnjo" je definiran kot fizična ali navidezna naprava, v kateri je nameščen program, vendar še ni bila zagnana, razen z ukazom za paket strežnikov; knjižnice programa se lahko uporabljajo za aplikacijo programa in gradnje strežnika v podporo licenciranemu programu.
+Gigabajt je 2 na 30. potenco bajtov.
+"Odprtokodna programska oprema" je opredeljena kot programska oprema, katere izvorna koda je prosto dostopna za spreminjanje ali dopolnjevanje z licenco, v kateri imetnik avtorskih pravic zagotavlja pravice do preučevanja, spreminjanja in distribucije programske opreme vsem in za kakršenkoli namen.
+Namestitev je nameščena kopija programa na fizični ali navidezni disk, ki je na voljo za izvajanje v računalniku.
+Dodatne podrobnosti
+WebSphere Application Server Liberty (Freemium)
+
+- Omejitve uporabe: neomejeno
+
+"Neomejeno" pomeni, da pravica imetnika licence do uporabe podpornega programa, ne glede na zgornje besedilo, ni omejena samo na uporabo njegove uporabe glavnega programa. Medtem ko druge omejitve za uporabo podpornega programa ostanejo v veljavi, pa lahko uporablja podporni program za namene, ki niso odvisni od licencirane uporabe glavnega programa.
+
+
+L/N:  L-KBAI-C66PYB
+D/N:  L-KBAI-C66PYB
+P/N:  L-KBAI-C66PYB
+
+
+Mednarodna programska licenčna pogodba
+
+1. del - splošne določbe
+
+S TEM, KO IMETNIK LICENCE PRENESE, NAMESTI, PREKOPIRA, DOSTOPI DO, KLIKNE GUMB »SPREJMEM« ALI KAKO DRUGAČE UPORABI PROGRAM, SOGLAŠA Z DOLOČBAMI TE POGODBE. ČE SPREJMETE TE DOLOČBE V IMENU IMETNIKA LICENCE, ODGOVARJATE IN JAMČITE, DA IMATE VSA POOBLASTILA ZA POVEZAVO IMETNIKA LICENCE S TEMI DOLOČBAMI. ČE S TEMI DOLOČBAMI NE SOGLAŠATE,
+
+* PROGRAMA NE PRENESITE, NE NAMESTITE, NE PREKOPIRAJTE, NE DOSTOPITE DO NJEGA, NE KLIKNITE GUMBA »SPREJMEM« ALI GA NE UPORABITE IN
+
+* NEMUDOMA VRNITE NEUPORABLJEN MEDIJ, DOKUMENTACIJO IN DOKAZILO O UPRAVIČENOSTI STRANKI, KI VAM JIH JE POSLALA, TA PA VAM BO POVRNILA PLAČAN ZNESEK. ČE STE PROGRAM PRENESLI, UNIČITE VSE NJEGOVE KOPIJE.
+
+1. Definicije
+
+»Pooblaščena uporaba« - podana raven, s katero lahko imetnik licence uporablja ali izvaja program. Ta raven je lahko merjena s številom uporabnikov, z milijoni storitvenih enot (»MSU-ji«), enotami vrednosti procesorja ("PVU-ji") ali drugimi ravnmi uporabe, ki jih poda IBM.
+
+»IBM« - International Business Machines Corporation ali ena od njegovih podružnic.
+
+»Podatki o licenciranju« (»LI«) - dokument, ki podaja informacije in kakršnekoli dodatne pogoje, specifične za program. Podatke o licenciranju programa si lahko ogledate na naslovu www.ibm.com/software/sla, najdete pa jih lahko tudi v imeniku programa, jih prikažete z vnosom sistemskega ukaza ali si jih ogledate v knjižici, ki je priložena programu.
+
+»Program« - naslednje, vključno z izvirnikom in vsemi celotnimi ali delnimi kopijami: 1) strojno čitljiva navodila in podatki, 2) komponente, datoteke in moduli, 3) avdiovizualna vsebina (kot so slike, besedilo, posnetki ali slike) in 4) s tem povezano licenčno gradivo (kot so ključi in dokumentacija).
+
+»Potrdilo o upravičenosti« - dokazilo o pooblaščeni uporabi imetnika licence. Potrdilo o upravičenosti dokazuje tudi kvalifikacijo imetnika licence za garancijo, cene bodočih posodobitev (če obstajajo) in potencialne posebne ali promocijske priložnosti. Če IBM imetniku licence ne posreduje potrdila o upravičenosti, lahko IBM namesto njega sprejme izvirno potrdilo o plačilu ali kakšen drug zapis o prodaji pri stranki (IBM ali njegov preprodajalec), pri kateri je imetnik licence pridobil program, in sicer pod pogojem, da podaja ime programa in pridobljeno pooblaščeno uporabo.
+
+»Garancijski rok« - eno leto, ki začne teči na datum, na katerega je izvornemu imetniku licence odobrena licenca.
+
+2. Struktura pogodbe
+
+Ta pogodba je sestavljena iz 1. dela - splošne določbe, iz 2. dela - pogoji, značilni za posamezne države (če obstajajo), podatkov o licenciranju in potrdila o upravičenosti. To je celotna pogodba med imetnikom licence in IBM-om v zvezi z uporabo programa. Kot takšna nadomešča vse predhodne ustne ali pisne komunikacije med imetnikom licence in IBM-om v zvezi z njegovo uporabo programa. Določbe iz 2. dela lahko nadomestijo ali spremenijo tiste iz 1. dela. V primeru, da pride do navzkrižja, imajo prednost pred obema deloma podatki o licenciranju.
+
+3. Odobritev pogodbe
+
+Lastnik programa je IBM ali IBM-ov dobavitelj. Program se ne prodaja, pač pa se zanj podeljujejo avtorske pravice in licenca.
+
+IBM dodeli imetniku licence neizključno licenco za 1) uporabo programa v skladu s pooblaščeno uporabo, določeno v potrdilu o upravičenosti, 2) izdelavo in namestitev kopij, ki bodo v podporo pri takšni pooblaščeni uporabi in 3) izdelavo varnostne kopije, vendar pod pogojem, da
+
+a. je imetnik licence pridobil program na zakonit način in zadovoljuje določbe te pogodbe;
+
+b. se varnostna kopija uporabi samo, če ni mogoče zagnati varnostno prekopiranega programa;
+
+c. imetnik licence opremi vsako kopijo ali delno kopijo programa z vsemi obvestili in drugimi oznakami o avtorskih pravicah, ki dokazujejo lastništvo;
+
+d. imetnik licence zagotovi, da vsak uporabnik, ki dostopi do programa (lokalno ali na daljavo) 1) to naredi samo v imenu imetnika licence in 2) pri tem upošteva določbe te pogodbe;
+
+e. imetnik licence program 1) uporablja, kopira, spreminja ali distribuira izključno v skladu z določbami te pogodbe; 2) v programu ne uporabi vzvratnega prevajanja, vzvratnega inženirstva ali ga kako drugače prevede, razen kot izrecno dopušča zakon brez možnosti odpovedi pogodbe; 3) ne uporabi komponent, datotek, modulov, avdiovizualne vsebine ali s tem povezanega licenčnega gradiva ločeno od programa; ali 4) programa ne podlicencira, daje v najem ali v zakup; in
+
+f. če pridobi imetnik licence ta program kot podporni program, ga bo uporabljal izključno kot podporo glavnemu programu in je predmet vseh omejitev iz licence za glavni program; ali, če pridobi imetnik licence ta program kot glavni program, bo uporabil vse podporne programe samo kot podporo temu programu in zanj veljajo vse omejitve iz te pogodbe. Za namen te točke »f« je »podporni program« tisti program, ki je del drugega IBM-ovega programa (»glavni program«) in je v podatkih o licenciranju glavnega programa določen kot podporni program. (Če želi imetnik licence pridobiti ločeno licenco za podporni program brez teh omejitev, se mora obrniti na stranko, pri kateri je pridobil podporni program.)
+
+Ta licenca velja za vsako kopijo programa, ki jo izdela imetnik licence.
+
+3.1 Zamenjave, posodobitve in popravki
+
+3.1.1 Zamenjave
+
+Če zamenjate program s programom iz zamenjave, licenca za zamenjan program nemudoma preneha veljati.
+
+3.1.2 Posodobitve in popravki
+
+Če prejme imetnik licence posodobitev ali popravek za program, sprejme vse dodatne ali drugačne določbe, ki veljajo za takšno posodobitev ali popravek, in so podane v podatkih o licenciranju. Če niso podane nobene dodatne ali drugačne določbe, za posodobitev ali popravek velja izključno ta pogodba. Če imetnik licence zamenja program s posodobitvijo, soglaša, da bo nemudoma prenehal uporabljati zamenjan program.
+
+3.2 Licence za določeno dobo
+
+Če dodeli IBM licenco za program za določeno dobo, licenca imetnika licence preneha veljati ob koncu te dobe, razen v primeru, če se imetnik licence in IBM dogovorita, da jo bosta podaljšala.
+
+3.3 Doba in prenehanje veljavnosti
+
+Ta pogodba ostane v veljavi, dokler se je ne odpove.
+
+IBM lahko odpove licenco imetnika licence, če ta ne upošteva določb te pogodbe.
+
+Če katerakoli stranka zaradi kakršnegakoli razloga odpove licenco, imetnik licence soglaša, da bo nemudoma prenehal uporabljati vse kopije programa in jih bo uničil. Vse določbe te pogodbe, ki zaradi svoje narave ostanejo v veljavi tudi po izteku te pogodbe, ostanejo v veljavi do svoje izpolnitve, in veljajo za ustrezne naslednike in pooblaščence obeh pogodbenih strank.
+
+4. Bremenitve
+
+Bremenitve temeljijo na pridobljeni pooblaščeni uporabi, določeni v potrdilu o upravičenosti. IBM ne daje nobenih posojil ali povračil za že zapadle ali plačane bremenitve, razen če je to določeno kje drugje v tej pogodbi.
+
+Če želi imetnik licence povečati svojo pooblaščeno uporabo, mora o tem vnaprej obvestiti IBM ali pooblaščenega IBM-ovega prodajalca in plačati vse ustrezne bremenitve.
+
+5. Davki
+
+Če ustrezna služba za program določi takso, davek, pristojbino ali prispevek, kar ne vključuje tistih, ki temeljijo na IBM-ovem čistem dohodku, imetnik licence soglaša, da bo plačal ta znesek, podan na računu, ali pa posredoval dokumente o oprostitvi. Imetnik licence je odgovoren za vse davke na osebno lastnino za program od datuma njegove pridobitve. Če ustrezna služba določi carinsko takso, davek, dajatev ali pristojbino za uvoz ali izvoz, prenos, dostop do ali uporabo programa izven države, v kateri je bila zanj imetniku licence dodeljena licenca, se imetnik licence strinja, da je odgovoren za kakršenkoli zaračunan znesek in ga bo tudi plačal.
+
+6. Garancija za vračilo denarja
+
+Če imetnik licence iz kakršnegakoli vzroka ni zadovoljen s programom in je izvirni imetnik licence, lahko odpove licenco in si priskrbi povračilo zneska, ki ga je plačal za program, vendar pod pogojem, da imetnik licence vrne program in potrdilo o upravičenosti stranki, pri kateri ju je pridobil, v roku 30 dni od datuma izdaje potrdila o upravičenosti za imetnika licence. Če gre za licenco za določeno dobo, ki je predmet podaljšanja, si lahko imetnik licence priskrbi denarno vračilo samo, če vrne program in njegovo potrdilo u upravičenosti v prvih 30 dneh začetne dobe. Če je imetnik licence prenesel program, naj se za navodila o denarnem vračilu obrne na stranko, pri kateri ga je pridobil.
+
+7. Prenos programa
+
+Imetnik licence lahko prenese program in vse njegove pravice in dolžnosti na drugo stranko samo, če ta stranka soglaša z določbami te pogodbe. Če katerakoli stran zaradi kakršnegakoli vzroka prekine licenco, imetnik licence ne sme prenesti programa na drugo stranko. Imetnik licence ne sme prenesti dela 1) programa ali 2) pooblaščene uporabe programa. Če imetnik licence prenese program, mora prenesti tudi natisnjeno različico te pogodbe, vključno s podatki o licenciranju in potrdilom o upravičenosti. Licenca imetnika licence preneha veljati nemudoma po prenosu.
+
+8. Garancija in izključitve
+
+8.1 Omejena garancija
+
+IBM jamči, da program pri uporabi v določenem operacijskem okolju ustreza njegovim specifikacijam. Specifikacije programa in informacije o določenem operacijskem okolju boste našli v dokumentaciji, ki ste jo dobili s programom (kot je na primer datoteka Preberi) ali v drugih informacijah, ki jih je objavil IBM (kot je na primer najava). Imetnik licence soglaša, da so lahko takšna dokumentacija in druga vsebina programa posredovani samo v angleškem jeziku, razen če drugače zahteva zakon brez možnosti pogodbene odpovedi ali omejitve.
+
+Garancija velja samo za nespremenjeni del programa. IBM ne jamči neprekinjenega ali brezhibnega delovanja programa ali da bo IBM odpravil vse okvare v programu. Za rezultate pri uporabi programa je odgovoren imetnik licence sam.
+
+V času garancijskega roka nudi IBM imetniku licence brezplačen dostop do IBM-ovih baz podatkov, ki vsebujejo informacije o znanih okvarah programa, popravkih okvar, omejitvah in zaobitjih. Za nadaljnje informacije preglejte priročnik za podporo IBM-ovi programski opremi na naslovu www.ibm.com/software/support.
+
+Če program v času garancijskega roka ne deluje v skladu z jamstvi in težave ni mogoče razrešiti z informacijami, ki so na voljo v IBM-ovih bazah podatkov, lahko imetnik licence vrne program in njegovo potrdilo o upravičenosti stranki (IBM-u ali njegovemu prodajalcu), pri kateri ga je pridobil in si priskrbi povračilo za plačan znesek. Po vrnitvi programa licenca imetnika licence preneha veljati. Če je imetnik licence prenesel program, naj se za navodila o denarnem vračilu obrne na stranko, pri kateri ga je pridobil.
+
+8.2 Izključitve
+
+TE GARANCIJE SO IZKLJUČNE GARANCIJE IMETNIKA LICENCE IN NADOMEŠČAJO VSE DRUGE GARANCIJE ALI POGOJE, PA NAJ BODO IZRECNI ALI NAKAZANI, KAR VKLJUČUJE TUDI (VENDAR NI OMEJENO NA) ZAKONSKE GARANCIJE ALI POGOJE PRIMERNOSTI ZA PRODAJO, ZADOVOLJIVO KAKOVOST, USTREZNOST ZA DOLOČEN NAMEN, NASLOV IN KAKRŠNOKOLI GARANCIJO ALI POGOJ NEKRŠENJA. NEKATERE DRŽAVE ALI SODNE PRISTOJNOSTI NE DOVOLJUJEJO IZKLJUČITVE IZRECNIH ALI NAKAZANIH GARANCIJ, ZATO ZGORNJA OMEJITEV ZA VAS LAHKO NE VELJA. V TEM PRIMERU SO TAKŠNE GARANCIJE OMEJENE NA TRAJANJE GARANCIJSKEGA ROKA. PO IZTEKU TEGA ROKA NE VELJA VEČ NOBENA GARANCIJA. NEKATERE DRŽAVE ALI SODNE PRISTOJNOSTI NE DOVOLJUJEJO OMEJITVE V TRAJANJU ZAKONSKE GARANCIJE, ZATO ZGORNJA OMEJITEV ZA IMETNIKA LICENCE LAHKO NE VELJA.
+
+TE GARANCIJE DAJEJO IMETNIKU LICENCE POSEBNE ZAKONSKE PRAVICE. IMETNIKU LICENCE LAHKO PRIPADAJO TUDI DRUGE PRAVICE, KI SE OD DRŽAVE DO DRŽAVE IN SODNE PRISTOJNOSTI DO SODNE PRISTOJNOSTI RAZLIKUJEJO.
+
+GARANCIJE V TEM 8. RAZDELKU (GARANCIJA IN IZKLJUČITVE) DOLOČA IZKLJUČNO IBM. TODA IZKLJUČITVE IZ TEGA PODRAZDELKA 8.2 (IZKLJUČITVE) VELJAJO TUDI ZA IBM-OVE DOBAVITELJE KODE DRUGIH PROIZVAJALCEV. TI DOBAVITELJI NUDIJO TAKŠNO KODO BREZ GARANCIJ ALI POGOJEV KAKRŠNEKOLI VRSTE. TA ODSTAVEK NE RAZVELJAVLJA IBM-OVIH GARANCIJSKIH DOLŽNOSTI, KI IZHAJAJO IZ TE POGODBE.
+
+9. Podatki in baze podatkov imetnika licence
+
+Da bi imetniku licence pomagali pri osamitvi vzroka težave v programu, lahko IBM od njega zahteva, da 1) omogoči IBM-u oddaljen dostop do svojega sistema ali 2) IBM-u pošlje podatke o licenciranju ali sistemske podatke. Vendar pa IBM ni dolžan nuditi takšne pomoči, če IBM in imetnik licence ne podpišeta ločene pisne pogodbe, v skladu s katero IBM soglaša, da bo nudil imetniku licence to vrsto podpore, ki presega IBM-ove garancijske obveznosti iz te pogodbe. V vsakem primeru bo IBM uporabil informacije o napakah in težavah za izboljšanje svojih izdelkov in storitev in kot pomoč pri nudenju s tem povezanih ponudb za podporo. V ta namen lahko IBM vključi IBM-ove pravne osebe in podpogodbenike (kar vključuje tudi tiste v eni ali več državah, v katerih se ne nahaja imetnik licence), imetnik licence pa daje IBM-u v ta namen pooblastilo.
+
+Imetnik licence ostaja odgovoren za 1) vse podatke in vsebino vseh baz podatkov, ki jih imetnik licence omogoči za IBM, 2) izbiro in uvedbo postopkov in nadzora v zvezi z dostopanjem, zaščito, šifriranjem, uporabljanjem in prenašanjem podatkov (vključno z vsemi osebnimi podatki) in 3) varnostno kopiranje in obnavljanje vseh baz podatkov in shranjenih podatkov. Imetnik licence IBM-u ne bo poslal ali priskrbel dostopa do osebnih informacij, ki so lahko v podatkovni ali kakršnikoli drugi obliki, in bo odgovoren za sprejemljive stroške in druge zneske, ki jih lahko naloži IBM v zvezi s takšnimi informacijami, ki so po nesreči posredovane IBM-u, ali za izgubo ali razkritje takšnih informacij s strani IBM-a, vključno s tistimi, do katerih pride zaradi zahtevkov katerihkoli tretjih strani.
+
+10. Omejitev odgovornosti
+
+Omejitve in izključitve iz tega razdelka 10 (Omejitev odgovornosti) veljajo v celoti, če jih ne prepoveduje veljaven zakon brez možnosti pogodbene odpovedi.
+
+10.1 Primeri, za katere je IBM lahko odgovoren
+
+Zaradi napake IBM-a ali zaradi kakšne druge obveznosti lahko pride do okoliščin, v katerih je imetnik licence od IBM-a upravičen terjati odškodnino. Ne glede na osnovo, na kateri je imetnik licence upravičen do odškodnine od IBM-a (vključno s temeljno kršitvijo, malomarnostjo, napačno predstavitvijo dejstev ali kakšnim drugim pogodbenim ali kazenskim zahtevkom), je IBM-ova celotna odgovornost za vse zahtevke, ki so vloženi skupaj v povezavi z vsakim programom ali kako drugače izhajajo iz te pogodbe, omejena na znesek kakršnekoli 1) odškodnine za telesne poškodbe (vključno s smrtjo) in škode v nepremičninah ali v osebnih premičninah in 2) drugo dejansko neposredno škodo do zneska (če je program predmet bremenitev za določeno dobo, do dvanajstmesečne bremenitve), ki ga je imetnik licence plačal za program, ki je predmet zahtevka.
+
+Ta omejitev velja tudi za vse IBM-ove razvijalce in dobavitelje programa, in predstavlja maksimum, za katerega so IBM in razvijalci in dobavitelji programa kolektivno odgovorni.
+
+10.2 Primeri, za katere IBM ni odgovoren
+
+IBM IN NJEGOVI RAZVIJALCI ALI DOBAVITELJI PROGRAMA POD NOBENIMI POGOJI NE ODGOVARJAJO ZA NASLEDNJE PRIMERE, TUDI ČE SO OBVEŠČENI O MOŽNOSTI, DA DO NJIH PRIDE:
+
+a. IZGUBO ALI POŠKODBO PODATKOV;
+
+b. POSEBNO, NAKLJUČNO, KAZENSKO ALI POSLEDIČNO ŠKODO ALI KAKRŠNOKOLI EKONOMSKO POSLEDIČNO ŠKODO; ALI
+
+c. IZGUBLJENE DOBIČKE, POSLOVANJE, DOHODKE, DOBRO IME ALI PRIČAKOVANE PRIHRANKE.
+
+11. Preverjanje skladnosti
+
+Za namen tega razdelka 11 (Preverjanje skladnosti) pomenijo »Določbe programa IPLA« 1) to pogodbo in ustrezne dodatke in transakcijske dokumente, ki jih priskrbi IBM in 2) IBM-ova načela za programsko opremo, ki se lahko najdejo na spletnem mestu IBM-ovih načel za programsko opremo (www.ibm.com/softwarepolicies), kar vključuje, vendar ni omejeno na tista načela, ki se nanašajo na varnostno kopiranje, določanje cen za podkapaciteto in selitev.
+
+Pravice in obveznosti iz tega razdelka 11 ostanejo v veljavi v obdobju, v katerem je program licenciran za imetnika licence in še dve leti zatem.
+
+11.1 Postopek preverjanja
+
+Imetnik licence soglaša, da bo izdelal, ohranil in IBM-u in njegovim revizorjem omogočil vpogled v natančne zabeležene zapise, izhodne podatke sistemskih orodij in druge sistemske informacije, ki zadostujejo za preverjanje, ali imetnik licence uporablja vse programe v skladu z določbami programa IPLA, kar vključuje, vendar ni omejeno na vse kvalifikacijske določbe za IBM-ovo ustrezno licenciranje in določanje cen. Dolžnost imetnika licence je 1) zagotoviti, da ne preseže svoje pooblaščene uporabe in 2) delovati v skladu z določbami programa IPLA.
+
+Na podlagi ustreznega predhodnega obvestila lahko IBM preveri, ali imetnik licence upošteva določbe programa IPLA na vseh lokacijah in v vseh okoljih, kjer imetnik licence uporablja (za kakršenkoli namen) programe, ki so predmet določb programa IPLA. Pri takšnem preverjanju bomo poskušali čim manj motiti poslovanje imetnika licence in ga lahko opravimo na lokaciji imetnika licence med običajnimi poslovnimi urami. IBM lahko kot pomoč pri preverjanju vključi neodvisnega revizorja, pod pogojem, da je IBM z njim podpisal pogodbo o zaupnosti.
+
+11.2 Razrešitev
+
+IBM bo imetnika licence v pisni obliki obvestil, če takšno preverjanje pokaže, da je imetnik licence pri uporabi kateregakoli programa presegel pooblaščeno uporabo ali če kako drugače ne zadovoljuje določb programa IPLA. Imetnik licence soglaša, da bo IBM-u nemudoma in neposredno plačal bremenitve, ki jih IBM poda na računu za 1) takšno preseženo uporabo, 2) podporo za takšno preseženo uporabo za trajanje takšne presežene uporabe ali za dve leti (kar je krajše) in 3) vse dodatne stroške in druge obveznosti, ki so ugotovljene kot rezultat takšnega preverjanja.
+
+12. Obvestila za druge proizvajalce
+
+Program lahko vključuje kodo drugega proizvajalca, za katero dodeli v tej pogodbi licenco IBM in ne drug proizvajalec. Opombe (če obstajajo) za kodo drugega proizvajalca ("Obvestila za druge proizvajalce") so vključena zgolj kot informacija za imetnika licence. Ta obvestila boste našli v datoteki (datotekah) OPOMBE programa. Informacije o tem, kako pridobiti izvorno kodo za kodo določenih drugih proizvajalcev, boste našli v razdelku Obvestila za druge proizvajalce. Če IBM v razdelku Obvestila za druge proizvajalce identificira kodo drugega proizvajala kot »kodo drugega proizvajalca z možnostjo spreminjanja«, daje IBM imetniku licence pooblastilo za 1) spreminjanje kode drugega proizvajalca z možnostjo spreminjanja in 2) vzvratno inženirstvo v modulih programa, ki so v neposrednem stiku s kodo drugega proizvajalca z možnostjo spreminjanja, pod pogojem, da gre izključno za namen razhroščevanja (debugging) popravkov imetnika licence v takšni kodi drugega proizvajalca. IBM-ove servisne in podporne obveznosti (če obstajajo) veljajo samo za nespremenjen program.
+
+13. Splošno
+
+a. Noben del te pogodbe ne vpliva na nobene zakonite pravice potrošnikov, ki jih ni mogoče odpovedati ali omejiti s pogodbo.
+
+b. Za programe, ki jih IBM posreduje imetniku licence v materialni obliki, bo IBM izpolnil svoje obveznosti glede dobave in dostave ob dostavi takšnih programov špediterju, ki ga imenuje IBM, razen če se IBM in imetnik licence v pisni obliki ne dogovorita drugače.
+
+c. Če se za katero določbo iz te pogodbe ugotovi, da ni veljavna ali da je ni mogoče uveljaviti, preostale določbe iz te pogodbe ostanejo v polni veljavi.
+
+d. Imetnik licence soglaša, da bo upošteval vse lokalne zakone in predpise v zvezi z izvažanjem in uvažanjem, vključno s predpisi in prepovedmi v povezavi z embargom in sankcijami o izvozu za določene končne uporabe ali za določene uporabnike.
+
+e. Imetnik licence pooblašča družbo International Business Machines Corporation in njene podružnice (in njene naslednike in pooblaščence, pogodbenike in IBM-ove poslovne partnerje) za shranjevanje in uporabo poslovnih kontaktnih informacij imetnika licence tam, kjer poslujejo, v povezavi z IBM-ovimi izdelki in storitvami ali pri pospeševanju IBM-ovega odnosa z imetnikom licence.
+
+f. Vsaka stran bo drugi strani omogočila sprejemljivo priložnost za zadovoljitev določb, preden bo začela trditi, da druga ne zadovoljuje svojih obveznosti iz te pogodbe. Strani bosta poskusili v dobri veri razrešiti vse spore, nesoglasja ali druge zahteve med stranmi v povezavi s to pogodbo.
+
+g. Razen če drugače ne zahteva lokalen zakon brez možnosti pogodbene odpovedi ali omejitve: 1) nobena stranka ne bo sprožila pravnega postopka, ne glede na njegovo obliko, za katerokoli zahtevo, nastalo v povezavo s to pogodbo, več kot dve leti po nastanku vzroka za zahtevo; in 2) po izteku tega časovnega obdobja vsi takšni zahtevki in druge ustrezne pravice, povezane z zahtevkom, zastarajo.
+
+h. Niti imetnik licence niti IBM nista odgovorna za neizpolnitev katerekoli obveznosti zaradi vzrokov, ki jih ni mogoče nadzorovati.
+
+i. Ta pogodba ne daje osnove za nobene pravice ali zahtevke katerihkoli tretjih strank, niti ni IBM odgovoren za nobene zahtevke tretjih strank proti imetniku licence, razen kot dovoljuje zgornji podrazdelek 10.1 (Primeri, za katere je IBM lahko odgovoren) za telesne poškodbe (vključno s smrtjo) ali škodo na nepremičninah ali v osebnih premičninah, za katere je IBM zakonsko odgovoren tej tretji stranki.
+
+j. S podpisom te pogodbe se nobena pogodbena stranka ne zanaša na nobeno predstavljeno dejstvo, ki ni določeno v tej pogodbi, kar vključuje, vendar ni omejeno na nobeno predstavljeno dejstvo, ki se nanaša na: 1) zmogljivost ali delovanje programa, razen kot je izrecno zajamčeno v razdelku 8 (Garancija in izključitve) zgoraj; 2) izkušnje ali priporočila drugih strank; ali 3) kakršnekoli rezultate ali prihranke, ki jih lahko pridobi imetnik licence.
+
+k. IBM je z določenimi organizacijami (imenovanimi "IBM-ovi poslovni partnerji") podpisal pogodbe za promoviranje, trženje in podpiranje določenih programov. IBM-ovi poslovni partnerji so neodvisni in ločeni od IBM-a. IBM ni odgovoren za dejanja ali izjave IBM-ovih poslovnih partnerjev ali za obveznosti, ki jih imajo do imetnika licence.
+
+l. Določbe v zvezi z odškodnino za licenco in intelektualno lastnino iz drugih pogodb, ki jih je imetnik licence podpisal z IBM-om (kot je na primer IBM-ova pogodba za stranke), ne veljajo za programske licence, dodeljene s to pogodbo.
+
+14. Geografsko področje in zakonodaja
+
+14.1 Zakonodaja
+
+Obe pogodbeni stranki soglašata, da bodo zakoni države, v kateri je imetnik licence pridobil licenco za program, uporabljeni za upravljanje, interpretiranje in uveljavljanje vseh ustreznih pravic, dolžnosti in obveznosti imetnika licence in IBM-a, nastalih na osnovi predmeta te pogodbe ali v povezavi z njim, ne glede na navzkrižje zakonskih načel.
+
+Konvencija Združenih narodov v zvezi s pogodbami za mednarodno prodajo blaga ne velja.
+
+4.2 Sodna pristojnost
+
+Vse pravice, dolžnosti in obveznosti bodo obravnavala sodišča v državi, v kateri imetnik licence pridobi licenco za program.
+
+2. del - pogoji, značilni za posamezne države
+
+Za licence, dodeljene v Sloveniji, naslednji pogoji nadomestijo ali spremenijo omenjene pogoje iz 1. dela. Vsi pogoji iz 1. dela, ki jih ta dopolnila ne spremenijo, ostanejo nespremenjeni in v veljavi.
+
+DOPOLNILA ZA DRŽAVE EMEA (EVROPA, SREDNJI VZHOD, AFRIKA)
+
+DRŽAVE ČLANICE EVROPSKE UNIJE
+
+8. Garancija in izključitve
+
+razdelku (Garancija in izključitve) je dodano naslednje:
+
+V Evropski uniji ("EU") za porabnike veljajo zakonske pravice iz ustrezne lokalne zakonodaje, ki je v uporabi za prodajo potrošniških dobrin. Na te pravice ne vplivajo določbe iz 8. razdelka z naslovom Garancija in izključitve. Omejena garancija velja po vsem svetu.
+
+13. Splošno
+
+Naslednje nadomešča točko 13.e:
+
+(1) Definicije - Za namene te točke 13.e veljajo naslednje dodatne definicije:
+
+(a) Poslovne kontaktne informacije - s podjetjem povezane kontaktne informacije, ki jih IBM-u razkrije imetnik licence, vključno z imeni, naslovi delovnih mest, poslovnimi naslovi, telefonskimi številkami in elektronskimi naslovi uslužbencev in pogodbenikov imetnika licence. Za Avstrijo, Italijo in Švico vključujejo poslovne kontaktne informacije tudi informacije o imetniku licence in njegovih pogodbenikih kot pravnih osebah (kot so na primer podatki o dohodkih imetnika licence in druge transakcijske informacije).
+
+(b) Osebje poslovnega stika - uslužbenci in pogodbeniki imetnika licence, s katerimi so povezane poslovne kontaktne informacije.
+
+(c) Služba za zaščito podatkov - služba, osnovana na osnovi zakonodaje za zaščito podatkov in elektronske komunikacije v ustrezni državi, za države, ki niso v Evropski uniji pa služba, ki je odgovorna za nadzorovanje zaščite osebnih podatkov v tej državi ali (za karkoli od zgoraj omenjenega) katerakoli njena ustrezno imenovana nasledna enota.
+
+(d) Zakonodaja za zaščito podatkov in elektronske komunikacije - (i) ustrezna lokalna zakonodaja in predpisi, ki so v veljavi z namenom izvajanja zahtev smernice EU 95/46/EC (za zaščito posameznikov pri obdelavi osebnih podatkov in pri prostem prenašanju takšnih podatkov) in smernice EU 2002/58/EC (glede obdelave osebnih podatkov in zaščite zasebnosti v sektorju elektronskih komunikacij); ali (ii) za države, ki niso v Evropski uniji zakonodaja in/ali predpisi, ki so v veljavi v ustrezni državi za zaščito osebnih podatkov in reguliranje elektronskih komunikacij, ki vključujejo osebne podatke, kar vključuje (za karkoli od zgoraj omenjenega) kakršnokoli njihovo ustavno zamenjavo ali popravek.
+
+(e) IBM-ova skupina - International Business Machines Corporation iz Armonka, New York, ZDA, njegove podružnice ter ustrezni poslovni partnerji in podpogodbeniki.
+
+(2) Imetnik licence pooblašča IBM za:
+
+(a) obdelavo in uporabo poslovnih kontaktnih informacij znotraj IBM-ove skupine za nudenje podpore imetniku licence, kar vključuje tudi nudenje podpornih storitev, in za izboljšanje poslovnega odnosa med imetnikom licence in IBM-ovo skupno, kar brez omejitve vključuje tudi stik z osebjem za poslovni stik (po elektronski pošti ali v kakšni drugi obliki), in trženje izdelkov in storitev IBM-ove skupine ("določen namen"); in
+
+(b) razkritje poslovnih kontaktnih informacij drugim članom iz IBM-ove skupine izključno za "določen namen".
+
+(3) IBM soglaša, da bodo vse poslovne kontaktne informacije obdelane v skladu z zakonodajo o zaščiti podatkov in elektronske komunikacije in bodo uporabljene izključno za "določen namen".
+
+(4) Do mere, ki jo zahteva zakonodaja za zaščito podatkov in elektronske komunikacije, imetnik licence izjavlja, da (a) je pridobil (ali bo pridobil) privolitve osebja zstika (ali je izdal ali bo izdal obvestila zanje), potrebne, da bi IBM-ovi skupini omogočil obdelavo in uporabo poslovnih kontaktnih informacij za "določen namen".
+
+(5) Imetnik licence pooblašča IBM za prenos poslovnih kontaktnih informacij izven evropskega tržnega prostora, pod pogojem, da je prenos izveden v skladu s pogodbenimi pogoji, ki jih odobri služba za zaščito podatkov, ali da je kako drugače dovoljen z zakonodajo za zaščito podatkov in elektronske komunikacije.
+
+Z125-3301-14 (07/2011)
+
+
+
